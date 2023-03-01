@@ -30,7 +30,32 @@ main {
   font-weight: bold;
 }
 
+.navbar-end {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
 .navbar-menu {
   display: flex;
   gap: 1rem;
+}
+
+.navbar-search {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  height: 1.5rem;
+}
+.navbar-search-field {
+  width: 7rem;
+  height: 1.5rem;
+}
+
+.navbar-search-button {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.navbar-search-button svg {
+  fill: white;
 }
