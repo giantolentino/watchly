@@ -6,9 +6,9 @@
 
 
 {% if not request.user.is_authenticated %}
-<div>
-  <h1>WELCOME TO WATCHLY</h1>
-</div>
+<h1>WELCOME TO WATCHLY</h1>
+<a href="{% url 'accounts:login' %}">Login</a>
 {% else %}
 <h1>HELLO {{ request.user.username }}, WELCOME TO WATCHLY</h1>
+<a href="{% url 'accounts:logout' %}">Logout</a>
 {% endif %} {% endblock %}
