@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 
-{% block body %}
+{% block main %}
 <form method="POST">
   {% csrf_token %} {{ form.as_p }}
   <input
