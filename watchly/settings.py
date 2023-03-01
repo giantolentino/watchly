@@ -127,3 +127,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Set the location of the apps directory
 APPS_DIR = [BASE_DIR / "apps"]
+
+
+LOGIN_REDIRECT_URL = "accounts:homepage"
