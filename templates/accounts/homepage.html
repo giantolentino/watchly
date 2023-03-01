@@ -3,5 +3,12 @@
 
 <!-- prettier-ignore -->
 {% block body %}
-<h1>WELCOME TO WATCHLY</h1>
-{% endblock %}
+
+
+{% if not request.user.is_authenticated %}
+<div>
+  <h1>WELCOME TO WATCHLY</h1>
+</div>
+{% else %}
+<h1>HELLO {{ request.user.username }}, WELCOME TO WATCHLY</h1>
+{% endif %} {% endblock %}
