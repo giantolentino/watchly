@@ -1,0 +1,15 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+
+<!-- prettier-ignore -->
+{% block body %}
+
+
+{% if not request.user.is_authenticated %}
+<h1>WELCOME TO WATCHLY</h1>
+<a href="{% url 'accounts:login' %}">Login</a>
+<a href="{% url 'accounts:register' %}">Register</a>
+{% else %}
+<h1>HELLO {{ request.user.username }}, WELCOME TO WATCHLY</h1>
+<a href="{% url 'accounts:logout' %}">Logout</a>
+{% endif %} {% endblock %}
