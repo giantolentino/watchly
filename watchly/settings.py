@@ -123,3 +123,12 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Set the location of the apps directory
+APPS_DIR = [BASE_DIR / "apps"]
+
+# Add the apps directory to the Python path
+sys.path.insert(0, str(APPS_DIR))
+
+# Discover all the apps in the apps directory
+INSTALLED_APPS += [app.name for app in APPS_DIR.iterdir() if app.is_dir()]
