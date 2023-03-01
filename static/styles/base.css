@@ -25,6 +25,13 @@ main {
   align-items: center;
 }
 
+.navbar a {
+  color: black !important;
+  font-size: 1.5rem;
+  all: unset;
+  cursor: pointer;
+}
+
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
