@@ -123,3 +123,7 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+.fullscreen-menu .nav-item {
+  font-size: 3rem;
+}
