@@ -124,23 +124,27 @@
       </div>
     </nav>
 
-    <main>{% block main %} {% endblock %}</main>
+    <main class="main">{% block main %} {% endblock %}</main>
 
     <script>
       const navBurger = document.querySelector('.navbar-burger');
       const fullscreenMenu = document.querySelector('.fullscreen-menu');
       const closeBtn = document.querySelector('.close-btn');
+      const main = document.querySelector('main');
 
       navBurger.addEventListener('click', () => {
         fullscreenMenu.classList.toggle('fullscreen-menu-active');
+        main.style.display = 'none';
       });
       closeBtn.addEventListener('click', () => {
         fullscreenMenu.classList.remove('fullscreen-menu-active');
+        main.style.display = 'block';
       });
 
       document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
           fullscreenMenu.classList.remove('fullscreen-menu-active');
+          main.style.display = 'block';
         }
       });
     </script>
