@@ -1,3 +1,25 @@
 .welcome-msg {
   font-size: max(1.5rem, 7vw);
 }
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  color: #000;
+  background-color: #fff;
+  cursor: pointer;
+}
