@@ -5,9 +5,162 @@ html {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3rem;
 }
 
 a {
-  font-size: 1.5em;
+  font-size: 1.5rem;
+}
+
+main {
+  padding: 5rem 2rem 1rem 2rem;
+  min-height: calc(100vh - 4rem);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: rem;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: black !important;
+  font-size: 1.5rem;
+  all: unset;
+  cursor: pointer;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.navbar-burger {
+  display: block;
+  cursor: pointer;
+}
+
+.navbar-burger span {
+  display: block;
+  width: 2rem;
+  height: 0.25rem;
+  margin: 0.4rem 0;
+  background-color: black;
+}
+.navbar-burger.active span:nth-child(2) {
+  transform: rotate(45deg);
+}
+.navbar-burger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+.navbar-burger.active span:nth-child(2),
+.navbar-burger.active span:nth-child(3) {
+  top: 0.8rem;
+}
+
+.navbar-end {
+  display: none;
+}
+
+.navbar-search {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  height: 1.5rem;
+}
+.navbar-search-field {
+  width: 7rem;
+  height: 1.5rem;
+}
+
+.navbar-search-button {
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 0.2rem;
+}
+
+.navbar-search-button svg {
+  fill: white;
+}
+
+@media (min-width: 48rem) {
+  .navbar-burger {
+    display: none;
+  }
+
+  .navbar-end {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: none;
+}
+
+.fullscreen-menu-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-menu .navbar-search {
+  position: absolute;
+  top: 0;
+  padding-top: 3rem;
+  height: 2rem;
+}
+.fullscreen-menu .navbar-search-field {
+  width: 15rem;
+  height: 2rem;
+}
+
+.fullscreen-menu .navbar-search-button {
+  height: 2rem;
+  width: 2rem;
+  padding: 0.2rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  font-size: 2rem;
+  line-height: 0.6;
+  background-color: transparent;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.fullscreen-menu .nav-item {
+  color: lightgrey !important;
+  font-size: 3rem;
+}
+
+.fullscreen-menu .nav-item:hover {
+  color: black !important;
+  font-size: 5rem;
 }
