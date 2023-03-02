@@ -13,7 +13,7 @@ a {
 }
 
 main {
-  padding: 2rem;
+  padding: 1rem 2rem;
   min-height: 100vh;
 }
 
@@ -92,6 +92,7 @@ main {
   .navbar-search-button {
     height: 1.5rem;
     width: 1.5rem;
+    padding: 0.2rem;
   }
 
   .navbar-search-button svg {
