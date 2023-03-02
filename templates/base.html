@@ -115,6 +115,12 @@
       navBurger.addEventListener('click', () => {
         fullscreenMenu.classList.toggle('fullscreen-menu-active');
       });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          fullscreenMenu.classList.remove('fullscreen-menu-active');
+        }
+      });
     </script>
   </body>
 </html>
