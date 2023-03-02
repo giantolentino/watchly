@@ -125,5 +125,11 @@ main {
 }
 
 .fullscreen-menu .nav-item {
+  color: lightgrey !important;
   font-size: 3rem;
+}
+
+.fullscreen-menu .nav-item:hover {
+  color: black !important;
+  font-size: 5rem;
 }
