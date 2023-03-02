@@ -12,26 +12,29 @@
 
 {% if not request.user.is_authenticated %}
 <h1 class="welcome-msg">WELCOME TO WATCHLY</h1>
-<a
-  class="btn"
-  href="{% url 'accounts:login' %}"
-  >Login</a
->
-<a
-  class="btn"
-  href="{% url 'accounts:register' %}"
-  >Register</a
->
+<div class="wrap">
+  <a
+    class="btn"
+    href="{% url 'accounts:login' %}"
+    >Login</a
+  >
+  <a
+    class="btn"
+    href="{% url 'accounts:register' %}"
+    >Register</a
+  >
+</div>
 
 {% else %}
-<h1 class="welcome-msg">
-  HELLO {{ request.user.username }}, WELCOME TO WATCHLY
-</h1>
-<a
-  class="btn"
-  href="{% url 'accounts:logout' %}"
-  >Logout</a
->
+<h1 class="welcome-msg">WELCOME, {{ request.user.username }}</h1>
+<div class="wrap">
+  <a
+    class="btn"
+    href="{% url 'accounts:logout' %}"
+    >Logout</a
+  >
+</div>
+
 {% endif %}
 
 <!-- prettier-ignore -->
