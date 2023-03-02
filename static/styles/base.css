@@ -69,23 +69,6 @@ main {
   display: none;
 }
 
-@media (min-width: 48rem) {
-  .navbar-burger {
-    display: none;
-  }
-
-  .navbar-end {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-  }
-}
-
-.navbar-menu {
-  display: flex;
-  gap: 1rem;
-}
-
 .navbar-search {
   display: flex;
   gap: 0.5rem;
@@ -107,6 +90,23 @@ main {
   fill: white;
 }
 
+@media (min-width: 48rem) {
+  .navbar-burger {
+    display: none;
+  }
+
+  .navbar-end {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1rem;
+}
+
 .fullscreen-menu {
   position: fixed;
   top: 0;
@@ -123,6 +123,23 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.fullscreen-menu .navbar-search {
+  position: absolute;
+  top: 0;
+  padding-top: 3rem;
+  height: 2rem;
+}
+.fullscreen-menu .navbar-search-field {
+  width: 15rem;
+  height: 2rem;
+}
+
+.fullscreen-menu .navbar-search-button {
+  height: 2rem;
+  width: 2rem;
+  padding: 0.2rem;
 }
 
 .close-btn {
