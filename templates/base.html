@@ -83,6 +83,7 @@
       </div>
 
       <div class="fullscreen-menu">
+        <button class="close-btn">&times;</button>
         <a
           href="{% url 'accounts:homepage' %}"
           class="nav-item"
@@ -111,9 +112,13 @@
     <script>
       const navBurger = document.querySelector('.navbar-burger');
       const fullscreenMenu = document.querySelector('.fullscreen-menu');
+      const closeBtn = document.querySelector('.close-btn');
 
       navBurger.addEventListener('click', () => {
         fullscreenMenu.classList.toggle('fullscreen-menu-active');
+      });
+      closeBtn.addEventListener('click', () => {
+        fullscreenMenu.classList.remove('fullscreen-menu-active');
       });
 
       document.addEventListener('keydown', (event) => {
