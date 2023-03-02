@@ -61,29 +61,6 @@ main {
   display: none;
 }
 
-.navbar-search {
-  display: flex;
-  gap: 0.25rem;
-  align-items: center;
-  height: 1.5rem;
-}
-
-.navbar-search-field {
-  width: 7rem;
-  height: 1.5rem;
-  padding-left: 0.25rem;
-}
-
-.navbar-search-button {
-  height: 1.5rem;
-  width: 1.5rem;
-  padding: 0.2rem;
-}
-
-.navbar-search-button svg {
-  fill: white;
-}
-
 @media (min-width: 48rem) {
   .navbar-burger {
     display: none;
@@ -117,23 +94,6 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.fullscreen-menu .navbar-search {
-  position: absolute;
-  top: 0;
-  padding-top: 3rem;
-  height: 2rem;
-}
-.fullscreen-menu .navbar-search-field {
-  width: 15rem;
-  height: 2rem;
-}
-
-.fullscreen-menu .navbar-search-button {
-  height: 2rem;
-  width: 2rem;
-  padding: 0.2rem;
 }
 
 .close-btn {

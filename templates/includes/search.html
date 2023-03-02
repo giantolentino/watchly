@@ -34,7 +34,19 @@
 
   /*Resize the wrap to see the search bar change!*/
   .search-wrap {
-    width: 30%;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    padding-top: 3rem;
+  }
+
+  @media (min-width: 48rem) {
+    .search-wrap {
+      width: 10rem;
+      position: initial;
+      top: initial;
+      padding-top: initial;
+    }
   }
 </style>
 
