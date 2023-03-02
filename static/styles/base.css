@@ -63,13 +63,15 @@ main {
 
 .navbar-search {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   align-items: center;
   height: 1.5rem;
 }
+
 .navbar-search-field {
   width: 7rem;
   height: 1.5rem;
+  padding-left: 0.25rem;
 }
 
 .navbar-search-button {
