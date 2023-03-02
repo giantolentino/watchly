@@ -81,8 +81,40 @@
           </button>
         </form>
       </div>
+
+      <div class="fullscreen-menu">
+        <a
+          href="#"
+          class="navbar-item"
+          >Home</a
+        >
+        <a
+          href="#"
+          class="navbar-item"
+          >Bookmarks</a
+        >
+        <a
+          href="#"
+          class="navbar-item"
+          >History</a
+        >
+        <a
+          href="#"
+          class="navbar-item"
+          >Profile</a
+        >
+      </div>
     </nav>
 
     <main>{% block main %} {% endblock %}</main>
+
+    <script>
+      const navBurger = document.querySelector('.navbar-burger');
+      const fullscreenMenu = document.querySelector('.fullscreen-menu');
+
+      navBurger.addEventListener('click', () => {
+        fullscreenMenu.classList.toggle('fullscreen-menu-active');
+      });
+    </script>
   </body>
 </html>
