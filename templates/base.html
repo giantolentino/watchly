@@ -33,6 +33,13 @@
           >Watchly</a
         >
       </div>
+      {% if not request.user.is_authenticated %}
+      <a
+        class="btn"
+        href="{% url 'accounts:login' %}"
+        >Login</a
+      >
+      {% else %}
 
       <div class="navbar-burger">
         <span></span>
@@ -65,7 +72,7 @@
         </div>
         {% include 'includes/search.html' %}
       </div>
-
+      {% endif %}
       <div class="fullscreen-menu">
         <button class="close-btn">&times;</button>
         {% include 'includes/search.html' %}
