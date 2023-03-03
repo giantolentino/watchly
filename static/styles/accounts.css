@@ -1,8 +1,3 @@
-.welcome-msg {
-  font-size: max(1.5rem, 7vw);
-  text-transform: uppercase;
-}
-
 .wrap {
   position: absolute;
   top: 50%;
@@ -17,27 +12,4 @@
   .wrap {
     flex-direction: row;
   }
-}
-
-.btn {
-  display: inline-block;
-  width: 6rem;
-  padding: 0.5rem 0.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
-  color: #fff;
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 0.25rem;
-  transition: all 0.3s ease-in-out;
-}
-
-.btn:hover {
-  color: #000;
-  background-color: #fff;
-  cursor: pointer;
 }

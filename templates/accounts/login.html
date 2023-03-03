@@ -1,13 +1,24 @@
 <!-- prettier-ignore -->
-{% extends "base.html" %}
+{% extends "base.html" %}{% load static %}
 
+<!-- prettier-ignore -->
+{% block head %}
+<link
+  rel="stylesheet"
+  href="{% static 'styles/accounts.css' %}" />
+{% endblock %}
+<!-- prettier-ignore -->
 
 {% block main %}
-<form method="POST">
-  {% csrf_token %} {{ form.as_p }}
-  <input
-    type="submit"
-    name="sumbit"
-    value="Login" />
-</form>
+<div class="wrap">
+  <form method="POST">
+    {% csrf_token %} {{ form.as_p}}
+    <button
+      class="btn"
+      type="submit">
+      Login
+    </button>
+  </form>
+</div>
+
 {% endblock %}
