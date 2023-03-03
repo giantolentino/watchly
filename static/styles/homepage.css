@@ -1,4 +1,5 @@
 .welcome-msg {
+  padding-top: 2rem;
   font-size: max(1.5rem, 7vw);
   text-transform: uppercase;
 }
