@@ -1,9 +1,62 @@
 <!-- prettier-ignore -->
 {% extends "base.html" %}{% load static %}
 
+<!-- prettier-ignore -->
+{% block head %}
+<style>
+  .searchcard {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5rem;
+    width: 30rem;
+    border: 2px solid hotpink;
+    border-radius: 10px;
+  }
+
+  .searchcard-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+  }
+
+  .searchcard-info {
+    background-color: darkgray;
+    padding: 0.5rem;
+  }
+
+  .info-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-description {
+    font-size: 1rem;
+  }
+</style>
+{% endblock %}
+
+<!-- prettier-ignore -->
 {% block main %}
 <div style="width: 50%; padding-top: 1rem; margin: auto">
   {% include 'includes/search.html' %}
+</div>
+
+<div class="searchcard">
+  <div class="searchcard-poster">
+    <img
+      src="https://www.themoviedb.org/t/p/w1280/eO4NHOsitcVpRw0kolJRLxXdxa2.jpg" />
+  </div>
+  <div class="searchcard-info">
+    <h1 class="info-title">Spirited Away (2002)</h1>
+    <p class="info-description">
+      A young girl, Chihiro, becomes trapped in a strange new world of spirits.
+      When her parents undergo a mysterious transformation, she must call upon
+      the courage she never knew she had to free her family.
+    </p>
+  </div>
 </div>
 
 {% endblock %}
