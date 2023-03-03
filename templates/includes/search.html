@@ -35,11 +35,16 @@
 
 {% endblock %}
 
-<form class="search-field">
+<form
+  class="search-field"
+  method="GET"
+  action="{% url 'search:search' %}">
   <input
     type="text"
     class="search-input"
-    placeholder="Search" />
+    placeholder="Search"
+    name="q"
+    value="{{ query }}" />
   <button
     type="submit"
     class="search-btn">
