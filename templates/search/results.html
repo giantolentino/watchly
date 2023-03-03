@@ -1,0 +1,82 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}{% load static %}
+
+<!-- prettier-ignore -->
+{% block head %}
+<style>
+  .search-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-gap: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .searchcard {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5rem;
+    border: 2px solid hotpink;
+    border-radius: 10px;
+  }
+
+  .searchcard-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+  }
+
+  .searchcard-info {
+    background-color: #1c1b22;
+    padding: 0.5rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .info-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-description {
+    font-size: 1rem;
+  }
+</style>
+{% endblock %}
+
+<!-- prettier-ignore -->
+{% block main %}
+<div style="width: 50%; padding-top: 1rem; margin: auto">
+  {% include 'includes/search.html' %}
+</div>
+
+<div class="search-grid">
+  {% if object_list %} {% for result in object_list %}
+  <div class="searchcard">
+    <div class="searchcard-poster">
+      <img
+        src="https://image.tmdb.org/t/p/w500{{ result.poster_path }}"
+        alt="poster_img" />
+    </div>
+    <div class="searchcard-info">
+      <h1 class="info-title">
+        <!-- prettier-ignore -->
+        {% if result.media_type == "movie" %} 
+        {{ result.title }}
+        <!-- prettier-ignore -->
+        {% elif result.media_type == "tv" %} 
+        {{ result.name }} 
+        {% endif %}
+      </h1>
+      <p class="info-description">{{ result.overview }}</p>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p>No results found.</p>
+  {% endif %}
+</div>
+
+{% endblock %}

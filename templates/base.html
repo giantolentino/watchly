@@ -75,7 +75,10 @@
       {% endif %}
       <div class="fullscreen-menu">
         <button class="close-btn">&times;</button>
-        {% include 'includes/search.html' %}
+        <div style="width: 50%; position: absolute; top: 0; padding-top: 3rem">
+          {% include 'includes/search.html' %}
+        </div>
+
         <a
           href="{% url 'accounts:homepage' %}"
           class="nav-item"
