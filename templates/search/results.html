@@ -49,12 +49,13 @@
 
 <!-- prettier-ignore -->
 {% block main %}
+
 <div style="width: 50%; padding-top: 1rem; margin: auto">
   {% include 'includes/search.html' %}
 </div>
 
 <div class="search-grid">
-  {% if object_list %} {% for result in object_list %}
+  {% if results %} {% for result in results %}
   <div class="searchcard">
     <div class="searchcard-poster">
       <img

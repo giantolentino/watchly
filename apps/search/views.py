@@ -8,6 +8,7 @@ API_KEY = settings.TMDB_API_KEY
 
 class SearchResultsView(ListView):
     template_name = "search/results.html"
+    context_object_name = "results"
     paginate_by = 20
 
     def get_queryset(self):
