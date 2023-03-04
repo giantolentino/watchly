@@ -6,17 +6,19 @@
 <link
   rel="stylesheet"
   href="{% static 'styles/accounts.css' %}" />
+
 {% endblock %}
 <!-- prettier-ignore -->
 
 {% block main %}
-<div class="wrap">
-  <form method="POST">
-    {% csrf_token %} {{ form.as_p}}
+
+<div class="login-form">
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
     <button
-      class="btn"
+      class="login-btn"
       type="submit">
-      Login
+      Log in
     </button>
   </form>
 </div>
