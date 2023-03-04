@@ -14,6 +14,7 @@
   }
 }
 
+.register-form,
 .login-form {
   position: absolute;
   top: 50%;
@@ -27,21 +28,44 @@
   border-radius: 0.5rem;
 }
 
+.register-form label,
 .login-form label {
   display: block;
   margin-bottom: 0.5rem;
+  font-size: 1.25rem;
 }
 
 .login-form input[type='text'],
-.login-form input[type='password'] {
+.login-form input[type='password'],
+.register-form input[type='text'],
+.register-form input[type='password'] {
   width: 100%;
   padding: 0.5rem;
-  margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 3px;
+  margin-bottom: 1rem;
 }
 
-.login-btn {
+.register-form .helptext {
+  margin-top: 0.25rem;
+  color: #999;
+  font-size: 1rem;
+}
+
+.register-form ul {
+  margin-top: -0.75rem;
+  color: #999;
+  font-size: 1rem;
+  list-style-position: inside;
+}
+
+.register-form .errorlist {
+  color: red;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.accounts-btn {
   display: block;
   margin: 0 auto;
   width: 6rem;
@@ -59,7 +83,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.login-btn:hover {
+.accounts-btn:hover {
   color: white;
   background-color: black;
   cursor: pointer;
