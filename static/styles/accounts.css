@@ -46,7 +46,22 @@
   margin-bottom: 1rem;
 }
 
-.register-form .helptext {
+.helptext {
+  position: absolute;
+  z-index: 1;
+  background-color: #555;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.register-form input:focus + .helptext {
+  opacity: 1;
+}
+
+/* .register-form .helptext {
   margin-top: 0.25rem;
   color: #999;
   font-size: 1rem;
@@ -57,7 +72,7 @@
   color: #999;
   font-size: 1rem;
   list-style-position: inside;
-}
+} */
 
 .register-form .errorlist {
   color: red;
