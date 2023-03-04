@@ -4,6 +4,11 @@
 <!-- prettier-ignore -->
 {% block head %}
 <style>
+  .search-bar {
+    width: 100%;
+    padding-top: 1rem;
+  }
+
   .search-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, 1fr);
@@ -53,9 +58,7 @@
 <!-- prettier-ignore -->
 {% block main %}
 
-<div style="width: 50%; padding-top: 1rem; margin: auto">
-  {% include 'includes/search.html' %}
-</div>
+<div class="search-bar">{% include 'includes/search.html' %}</div>
 
 <div class="search-grid">
   {% if results %} {% for result in results %}
