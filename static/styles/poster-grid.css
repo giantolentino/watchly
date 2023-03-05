@@ -50,7 +50,8 @@
 }
 
 .modal-content img {
+  aspect-ratio: 2/3;
   border: 2px solid hotpink;
   border-radius: 10px;
-  max-width: 80%;
+  max-height: 70vh;
 }
