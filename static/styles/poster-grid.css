@@ -10,10 +10,23 @@
   border: 2px solid hotpink;
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .poster-card img {
   height: 100%;
   aspect-ratio: 2/3;
   object-fit: cover;
+}
+
+.poster-card:hover {
+  opacity: 0.8;
+}
+
+.poster-card:active {
+  opacity: 0.5;
+}
+
+.poster-card:focus {
+  outline: none;
 }
