@@ -11,3 +11,9 @@
   border-radius: 10px;
   overflow: hidden;
 }
+
+.poster-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
