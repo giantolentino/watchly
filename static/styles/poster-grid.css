@@ -50,5 +50,7 @@
 }
 
 .modal-content img {
+  border: 2px solid hotpink;
+  border-radius: 10px;
   max-width: 80%;
 }
