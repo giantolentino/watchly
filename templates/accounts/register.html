@@ -5,17 +5,33 @@
 {% block head %}
 <link
   rel="stylesheet"
-  href="{% static 'styles/accounts.css' %}" />
-{% endblock %}
+  href="{% static 'styles/accounts.css' %}" />åååå {% endblock %}
 <!-- prettier-ignore -->
 
 {% block main %}
-<div class="wrap">
+<div class="register-form">
   <form method="post">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %} {% for field in form %}
+
+    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {{ field }} {% if field.errors %}
+    <ul class="errorlist">
+      {% for error in field.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% if field.help_text %}
+    <div class="helptext">{{ field.help_text }}</div>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% endfor %}
     <button
-      class="btn"
-      type="submit">
+      type="submit"
+      class="accounts-btn">
       Register
     </button>
   </form>
