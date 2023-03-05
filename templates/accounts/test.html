@@ -7,9 +7,14 @@
   rel="stylesheet"
   href="{% static 'styles/accounts.css' %}" />
 {% endblock %}
+
 <!-- prettier-ignore -->
 {% block main %}
 
-<h1 style="text-align: center; font-size: 3rem">TEST PAGE</h1>
+<h1 style="text-align: center; font-size: 3rem; padding-bottom: 0.5rem">
+  TEST PAGE
+</h1>
 
+{% include 'includes/poster-grid.html' %}
+<!-- prettier-ignore -->
 {% endblock %}
