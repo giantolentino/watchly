@@ -1,0 +1,56 @@
+.poster-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.poster-card {
+  width: 100%;
+  aspect-ratio: 2/3;
+  border: 2px solid hotpink;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.poster-card img {
+  height: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.poster-card:hover {
+  opacity: 0.8;
+}
+
+.poster-card:active {
+  opacity: 0.5;
+}
+
+.poster-card:focus {
+  outline: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modal-content img {
+  border: 2px solid hotpink;
+  border-radius: 10px;
+  max-width: 80%;
+}

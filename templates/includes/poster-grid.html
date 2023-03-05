@@ -1,0 +1,84 @@
+{% load static %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{% static 'styles/poster-grid.css' %}" />
+{% endblock %}
+
+<div class="poster-grid">
+  <div
+    class="poster-card"
+    target="_blank">
+    <img
+      src="https://image.tmdb.org/t/p/original/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg" />
+  </div>
+  <div
+    class="poster-card"
+    target="_blank">
+    <img
+      src="https://image.tmdb.org/t/p/original/7WUHnWGx5OO145IRxPDUkQSh4C7.jpg" />
+  </div>
+  <div
+    class="poster-card"
+    target="_blank">
+    <img
+      src="https://image.tmdb.org/t/p/original/vJUDoYNNKvBqbEPUskgvzPXGEFz.jpg" />
+  </div>
+  <div
+    class="poster-card"
+    target="_blank">
+    <img
+      src="https://image.tmdb.org/t/p/original/4XddcRDtnNjYmLRMYpbrhFxsbuq.jpg" />
+  </div>
+  <div
+    class="poster-card"
+    target="_blank">
+    <img
+      src="https://image.tmdb.org/t/p/original/ucpgmUR1h5Te1BYegKItoPjOeF7.jpg" />
+  </div>
+  <div
+    class="poster-card"
+    target="_blank">
+    <img
+      src="https://image.tmdb.org/t/p/original/vpbaStTMt8qqXaEgnOR2EE4DNJk.jpg" />
+  </div>
+</div>
+
+<div class="modal">
+  <div class="modal-content">
+    <img
+      src=""
+      alt="poster image" />
+  </div>
+</div>
+
+<script>
+  // get the modal and modal content
+  const modal = document.querySelector('.modal');
+  const modalContent = document.querySelector('.modal-content');
+
+  // get all the poster cards and add click event listener
+  const posterCards = document.querySelectorAll('.poster-card');
+  posterCards.forEach((card) => {
+    const img = card.querySelector('img');
+    img.addEventListener('click', () => {
+      // set the modal image source to the clicked image source
+      modalContent.innerHTML = `<img src="${img.src}" alt="poster image" />`;
+      // show the modal
+      modal.style.display = 'block';
+    });
+  });
+
+  // add click event listener to close the modal when clicked outside of the modal content
+  modal.addEventListener('click', (event) => {
+    if (event.target != modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // add keydown event listener to close the modal when escape key is pressed
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      modal.style.display = 'none';
+    }
+  });
+</script>
