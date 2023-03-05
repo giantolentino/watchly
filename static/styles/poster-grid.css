@@ -1,0 +1,7 @@
+.poster-card {
+  width: 100%;
+  aspect-ratio: 2/3;
+  border: 2px solid hotpink;
+  border-radius: 10px;
+  overflow: hidden;
+}
