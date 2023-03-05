@@ -7,7 +7,7 @@
 .poster-card {
   width: 100%;
   aspect-ratio: 2/3;
-  border: 2px solid hotpink;
+  border: 2px solid whitesmoke;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -51,7 +51,7 @@
 
 .modal-content img {
   aspect-ratio: 2/3;
-  border: 2px solid hotpink;
+  border: 2px solid whitesmoke;
   border-radius: 10px;
   max-height: 70vh;
 }
