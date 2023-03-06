@@ -5,42 +5,15 @@
 {% endblock %}
 
 <div class="poster-grid">
+  {% for entry in entries %}
   <div
     class="poster-card"
     target="_blank">
     <img
-      src="https://image.tmdb.org/t/p/original/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg" />
+      src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}"
+      alt="{{ entry.title }}" />
   </div>
-  <div
-    class="poster-card"
-    target="_blank">
-    <img
-      src="https://image.tmdb.org/t/p/original/7WUHnWGx5OO145IRxPDUkQSh4C7.jpg" />
-  </div>
-  <div
-    class="poster-card"
-    target="_blank">
-    <img
-      src="https://image.tmdb.org/t/p/original/vJUDoYNNKvBqbEPUskgvzPXGEFz.jpg" />
-  </div>
-  <div
-    class="poster-card"
-    target="_blank">
-    <img
-      src="https://image.tmdb.org/t/p/original/4XddcRDtnNjYmLRMYpbrhFxsbuq.jpg" />
-  </div>
-  <div
-    class="poster-card"
-    target="_blank">
-    <img
-      src="https://image.tmdb.org/t/p/original/ucpgmUR1h5Te1BYegKItoPjOeF7.jpg" />
-  </div>
-  <div
-    class="poster-card"
-    target="_blank">
-    <img
-      src="https://image.tmdb.org/t/p/original/vpbaStTMt8qqXaEgnOR2EE4DNJk.jpg" />
-  </div>
+  {% endfor %}
 </div>
 
 <div class="modal">
