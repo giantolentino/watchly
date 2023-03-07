@@ -1,0 +1,18 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}{% load static %}
+
+<!-- prettier-ignore -->
+{% block head %}
+{% endblock %}
+
+<!-- prettier-ignore -->
+{% block main %}
+
+{{ title }}
+{{ year }}
+{{ date }}
+{{ trailer }}
+
+<img src="https://image.tmdb.org/t/p/original{{ result.poster_path }}" />
+
+{% endblock %}
