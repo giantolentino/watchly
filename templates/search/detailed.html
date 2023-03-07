@@ -8,11 +8,17 @@
 <!-- prettier-ignore -->
 {% block main %}
 
-{{ title }}
-{{ year }}
-{{ date }}
-{{ trailer }}
+<div class="detailed-grid">
+  <img
+    class="poster-img"
+    src="https://image.tmdb.org/t/p/original{{ result.poster_path }}" />
 
-<img src="https://image.tmdb.org/t/p/original{{ result.poster_path }}" />
+  <div class="info">
+    <h1 class="title">{{ title }} ({{ year }})</h1>
+    <h3 class="release-date">{{ date }}</h3>
+    <p class="overview">{{ result.overview }}</p>
+    <iframe class="trailer">{{ trailer }}</iframe>
+  </div>
+</div>
 
 {% endblock %}
