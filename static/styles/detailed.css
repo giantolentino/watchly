@@ -10,3 +10,7 @@
   aspect-ratio: 2/3;
   object-fit: cover;
 }
+
+.title {
+  font-size: 2rem;
+}
