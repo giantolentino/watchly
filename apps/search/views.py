@@ -5,6 +5,9 @@ from django.shortcuts import render
 from datetime import datetime
 from requests import get
 import requests
+from apps.bookmarks.forms import BookmarkForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 
 
 API_KEY = settings.TMDB_API_KEY
@@ -37,6 +40,18 @@ class DetailedView(View):
         youtube_url = get_youtube_url(result_id, type)
         result, title, year, date = get_result_data(result_id, type)
 
+        bookmark_form = BookmarkForm(
+            request.POST or None,
+            initial={
+                "title": title,
+                "year": year,
+                "posterpath": result["poster_path"],
+                "description": result["overview"],
+                "media_type": type,
+                "tmdb_id": result_id,
+            },
+        )
+
         return render(
             request,
             "search/detailed.html",
@@ -46,6 +61,32 @@ class DetailedView(View):
                 "year": year,
                 "date": date,
                 "trailer": youtube_url,
+                "bookmark_form": bookmark_form,
+            },
+        )
+
+    def post(self, request, result_id):
+        type = request.GET.get("type")
+        youtube_url = get_youtube_url(result_id, type)
+        result, title, year, date = get_result_data(result_id, type)
+
+        bookmark_form = BookmarkForm(request.POST or None)
+
+        if bookmark_form.is_valid():
+            bookmark_form.instance.user = request.user
+            bookmark_form.save()
+            return HttpResponseRedirect(reverse_lazy("bookmarks:index"))
+
+        return render(
+            request,
+            "search/detailed-result.html",
+            {
+                "result": result,
+                "title": title,
+                "year": year,
+                "date": date,
+                "trailer": youtube_url,
+                "bookmark_form": bookmark_form,
             },
         )
 
