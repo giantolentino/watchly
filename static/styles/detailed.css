@@ -1,0 +1,26 @@
+.info,
+.detailed-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+.poster-img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.overview,
+.release-date {
+  font-size: 1rem;
+}
+
+.trailer {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}

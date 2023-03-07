@@ -15,7 +15,13 @@
 
 <div class="search-grid">
   {% if results %} {% for result in results %}
-  <div class="searchcard">
+
+  {% if result.media_type == "tv" %}
+    <a href="{% url 'search:detailed' result.id %}?type=tv" class="searchcard">
+  {% else %}
+    <a href="{% url 'search:detailed' result.id %}?type=movie" class="searchcard">
+  {% endif %}
+
     <div class="searchcard-poster">
       <img
         src="https://image.tmdb.org/t/p/w500{{ result.poster_path }}"
@@ -33,7 +39,7 @@
       </h1>
       <p class="info-description">{{ result.overview }}</p>
     </div>
-  </div>
+  </a>
   {% endfor %} {% else %}
   <p>No results found.</p>
   {% endif %}

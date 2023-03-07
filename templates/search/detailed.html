@@ -1,0 +1,32 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}{% load static %}
+
+<!-- prettier-ignore -->
+{% block head %}
+<link
+  rel="stylesheet"
+  href="{% static 'styles/detailed.css' %}" />
+{% endblock %}
+
+<!-- prettier-ignore -->
+{% block main %}
+
+<div class="detailed-grid">
+  <img
+    class="poster-img"
+    src="https://image.tmdb.org/t/p/original{{ result.poster_path }}" />
+
+  <div class="info">
+    <h1 class="title">{{ title }} ({{ year }})</h1>
+    <h3 class="release-date">Released On: {{ date }}</h3>
+    <p class="overview">Overview: "{{ result.overview }}"</p>
+    <iframe
+      class="trailer"
+      src="{{ trailer }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+{% endblock %}
