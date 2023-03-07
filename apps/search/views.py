@@ -8,6 +8,8 @@ import requests
 from apps.bookmarks.forms import BookmarkForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.db import IntegrityError
+from django.contrib import messages
 
 
 API_KEY = settings.TMDB_API_KEY
@@ -74,12 +76,18 @@ class DetailedView(View):
 
         if bookmark_form.is_valid():
             bookmark_form.instance.user = request.user
-            bookmark_form.save()
-            return HttpResponseRedirect(reverse_lazy("bookmarks:index"))
+
+            try:
+                bookmark_form.save()
+                return HttpResponseRedirect(reverse_lazy("bookmarks:index"))
+            except IntegrityError:
+                bookmark_form.add_error(None, "Bookmark already exists.")
+        else:
+            messages.error(request, "Please correct the errors below.")
 
         return render(
             request,
-            "search/detailed-result.html",
+            "search/detailed.html",
             {
                 "result": result,
                 "title": title,
