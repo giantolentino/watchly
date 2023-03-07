@@ -20,7 +20,12 @@
     <h1 class="title">{{ title }} ({{ year }})</h1>
     <h3 class="release-date">Released On: {{ date }}</h3>
     <p class="overview">Overview: "{{ result.overview }}"</p>
-    <iframe class="trailer">{{ trailer }}</iframe>
+    <iframe
+      class="trailer"
+      src="{{ trailer }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
   </div>
 </div>
 
