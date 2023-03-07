@@ -19,3 +19,8 @@
 .release-date {
   font-size: 1rem;
 }
+
+.trailer {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
