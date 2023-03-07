@@ -6,6 +6,23 @@
 <link
   rel="stylesheet"
   href="{% static 'styles/detailed.css' %}" />
+
+<style>
+  .bookmark-form {
+    padding-bottom: 1rem;
+  }
+  .bookmark-form input[type='text'] {
+    width: 1.75rem;
+    text-align: center;
+    height: 1.75rem;
+  }
+
+  .errorlist {
+    color: red;
+    list-style-type: none;
+    padding-bottom: 0.25rem;
+  }
+</style>
 {% endblock %}
 
 <!-- prettier-ignore -->
@@ -27,6 +44,22 @@
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
+  <form
+    method="POST"
+    id="bookmark-form">
+    {% csrf_token %}
+    <div class="bookmark-form">{{ bookmark_form.as_p }}</div>
+
+    <div class="">
+      <button
+        type="submit"
+        value="Bookmark"
+        class="btn"
+        style="width: fit-content; font-size: 0.75rem">
+        Bookmark
+      </button>
+    </div>
+  </form>
 </div>
 
 {% endblock %}
