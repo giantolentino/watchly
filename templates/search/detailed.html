@@ -27,6 +27,23 @@
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
+  <form
+    method="POST"
+    id="bookmark-form">
+    {% csrf_token %}
+    <table>
+      {{ bookmark_form.as_table }}
+    </table>
+    <div class="">
+      <button
+        type="submit"
+        value="Bookmark"
+        class="btn"
+        style="width: fit-content">
+        Bookmark
+      </button>
+    </div>
+  </form>
 </div>
 
 {% endblock %}
