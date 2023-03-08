@@ -10,6 +10,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
+    padding-bottom: 1rem;
   }
 
   .poster-img {
@@ -53,4 +54,12 @@
     <p class="overview">Overview: "{{ entry.description }}"</p>
   </div>
 </div>
+
+<a
+  class="btn"
+  href="{% url 'bookmarks:delete' entry.id %}"
+  id="deleteBtn"
+  >Delete</a
+>
+
 {% endblock %}
