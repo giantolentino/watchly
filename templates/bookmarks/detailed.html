@@ -10,6 +10,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
+    padding-bottom: 1rem;
   }
 
   .poster-img {
@@ -32,6 +33,26 @@
     aspect-ratio: 16 / 9;
     width: 100%;
   }
+
+  .confirmBox {
+    width: fit-content;
+    padding: 0.5rem;
+    display: none;
+    border: 2px solid #fff;
+    border-radius: 10px;
+  }
+
+  .confirmBox p {
+    font-size: 1.25rem;
+    color: red;
+    padding-bottom: 1rem;
+  }
+
+  .confirmBox-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 </style>
 <!-- <link
   rel="stylesheet"
@@ -53,4 +74,54 @@
     <p class="overview">Overview: "{{ entry.description }}"</p>
   </div>
 </div>
+
+<a
+  class="btn"
+  href="{% url 'bookmarks:delete' entry.id %}"
+  id="deleteBtn"
+  >Delete</a
+>
+<div
+  id="confirmBox"
+  class="confirmBox">
+  <div class="confirmBox-content">
+    <p>Are you sure?</p>
+    <div class="confirmBox-buttons">
+      <button
+        class="btn"
+        style="width: 3rem"
+        id="confirmBtn">
+        Yes
+      </button>
+      <button
+        class="btn"
+        style="width: 3rem"
+        id="cancelBtn">
+        No
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const deleteBtn = document.getElementById('deleteBtn');
+  const confirmBox = document.getElementById('confirmBox');
+  const confirmBtn = document.getElementById('confirmBtn');
+  const cancelBtn = document.getElementById('cancelBtn');
+
+  deleteBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    deleteBtn.style.display = 'none';
+    confirmBox.style.display = 'block';
+  });
+
+  confirmBtn.addEventListener('click', () => {
+    window.location.href = deleteBtn.href;
+  });
+
+  cancelBtn.addEventListener('click', () => {
+    confirmBox.style.display = 'none';
+    deleteBtn.style.display = 'block';
+  });
+</script>
 {% endblock %}
