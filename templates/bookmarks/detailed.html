@@ -33,6 +33,19 @@
     aspect-ratio: 16 / 9;
     width: 100%;
   }
+
+  .confirmBox {
+    width: fit-content;
+    padding: 0.5rem;
+    display: none;
+    border: 2px solid #fff;
+  }
+
+  .confirmBox p {
+    font-size: 1.25rem;
+    color: red;
+    padding-bottom: 1rem;
+  }
 </style>
 <!-- <link
   rel="stylesheet"
@@ -63,12 +76,20 @@
 >
 <div
   id="confirmBox"
-  class="  id="confirmBox">
-  <div class="  id="confirmBox-content">
-    <p>Are you sure you want to delete this bookmark?</p>
-    <div class="  id="confirmBox-buttons">
-      <button id="confirmBtn">Confirm</button>
-      <button id="cancelBtn">Cancel</button>
+  class="confirmBox">
+  <div class="confirmBox-content">
+    <p>Are you sure?</p>
+    <div class="confirmBox-buttons">
+      <button
+        class="btn"
+        id="confirmBtn">
+        Yes
+      </button>
+      <button
+        class="btn"
+        id="cancelBtn">
+        No
+      </button>
     </div>
   </div>
 </div>
