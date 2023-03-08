@@ -61,5 +61,37 @@
   id="deleteBtn"
   >Delete</a
 >
+<div
+  id="confirmBox"
+  class="  id="confirmBox">
+  <div class="  id="confirmBox-content">
+    <p>Are you sure you want to delete this bookmark?</p>
+    <div class="  id="confirmBox-buttons">
+      <button id="confirmBtn">Confirm</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+</div>
 
+<script>
+  const deleteBtn = document.getElementById('deleteBtn');
+  const confirmBox = document.getElementById('confirmBox');
+  const confirmBtn = document.getElementById('confirmBtn');
+  const cancelBtn = document.getElementById('cancelBtn');
+
+  deleteBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    deleteBtn.style.display = 'none';
+    confirmBox.style.display = 'block';
+  });
+
+  confirmBtn.addEventListener('click', () => {
+    window.location.href = deleteBtn.href;
+  });
+
+  cancelBtn.addEventListener('click', () => {
+    confirmBox.style.display = 'none';
+    deleteBtn.style.display = 'block';
+  });
+</script>
 {% endblock %}
