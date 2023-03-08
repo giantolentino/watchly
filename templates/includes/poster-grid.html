@@ -6,25 +6,25 @@
 
 <div class="poster-grid">
   {% for entry in entries %}
-  <div
-    class="poster-card"
-    target="_blank">
+  <a
+    href="{% url 'bookmarks:detailed' entry.id %}"
+    class="poster-card">
     <img
       src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}"
       alt="{{ entry.title }}" />
-  </div>
+  </a>
   {% endfor %}
 </div>
 
-<div class="modal">
+<!-- <div class="modal">
   <div class="modal-content">
     <img
       src=""
       alt="poster image" />
   </div>
-</div>
+</div> -->
 
-<script>
+<!-- <script>
   // get the modal and modal content
   const modal = document.querySelector('.modal');
   const modalContent = document.querySelector('.modal-content');
@@ -54,4 +54,4 @@
       modal.style.display = 'none';
     }
   });
-</script>
+</script> -->
