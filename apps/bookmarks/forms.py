@@ -31,3 +31,20 @@ class BookmarkForm(forms.ModelForm):
                 }
             ),
         }
+
+
+class UpdateBookmarkForm(forms.ModelForm):
+    class Meta:
+        model = Bookmark
+        fields = [
+            "priority",
+        ]
+        widgets = {
+            "priority": forms.TextInput(
+                attrs={
+                    "type": "text",
+                    "inputmode": "numeric",
+                    "pattern": "[0-9]+",
+                }
+            ),
+        }
