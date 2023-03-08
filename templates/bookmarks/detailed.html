@@ -39,12 +39,19 @@
     padding: 0.5rem;
     display: none;
     border: 2px solid #fff;
+    border-radius: 10px;
   }
 
   .confirmBox p {
     font-size: 1.25rem;
     color: red;
     padding-bottom: 1rem;
+  }
+
+  .confirmBox-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 </style>
 <!-- <link
@@ -82,11 +89,13 @@
     <div class="confirmBox-buttons">
       <button
         class="btn"
+        style="width: 3rem"
         id="confirmBtn">
         Yes
       </button>
       <button
         class="btn"
+        style="width: 3rem"
         id="cancelBtn">
         No
       </button>
