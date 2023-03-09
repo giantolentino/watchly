@@ -27,7 +27,9 @@ class BookmarkDetailView(DetailView):
         form = UpdateBookmarkForm(request.POST, instance=bookmark)
         if form.is_valid():
             form.save()
-            return render(request, self.template_name, {"entry": bookmark})
+            return render(
+                request, self.template_name, {"entry": bookmark, "form": form}
+            )
         else:
             return render(
                 request, self.template_name, {"entry": bookmark, "form": form}
