@@ -5,6 +5,10 @@
 {% block head %}
 
 <style>
+  .btn {
+    width: 4rem;
+    font-size: 0.75rem;
+  }
   .info,
   .detailed-grid {
     display: grid;
@@ -53,6 +57,13 @@
     justify-content: space-around;
     align-items: center;
   }
+
+  .updateForm {
+    padding: 0.5rem;
+    display: none;
+    border: 2px solid #fff;
+    border-radius: 10px;
+  }
 </style>
 <!-- <link
   rel="stylesheet"
@@ -75,12 +86,33 @@
   </div>
 </div>
 
-<a
-  class="btn"
-  href="{% url 'bookmarks:delete' entry.id %}"
-  id="deleteBtn"
-  >Delete</a
->
+<div id="buttons">
+  <a
+    href="#"
+    class="btn"
+    id="editBtn"
+    >Edit</a
+  ><a
+    class="btn"
+    href="{% url 'bookmarks:delete' entry.id %}"
+    id="deleteBtn"
+    >Delete</a
+  >
+</div>
+
+<div
+  class="updateForm"
+  id="updateForm">
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button
+      class="btn"
+      type="submit">
+      Update
+    </button>
+  </form>
+</div>
+
 <div
   id="confirmBox"
   class="confirmBox">
@@ -89,13 +121,11 @@
     <div class="confirmBox-buttons">
       <button
         class="btn"
-        style="width: 3rem"
         id="confirmBtn">
         Yes
       </button>
       <button
         class="btn"
-        style="width: 3rem"
         id="cancelBtn">
         No
       </button>
@@ -103,20 +133,24 @@
   </div>
 </div>
 
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Update</button>
-</form>
-
 <script>
+  const buttons = document.getElementById('buttons');
+  const editBtn = document.getElementById('editBtn');
   const deleteBtn = document.getElementById('deleteBtn');
   const confirmBox = document.getElementById('confirmBox');
+  const updateForm = document.getElementById('updateForm');
   const confirmBtn = document.getElementById('confirmBtn');
   const cancelBtn = document.getElementById('cancelBtn');
 
+  editBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    buttons.style.display = 'none';
+    updateForm.style.display = 'block';
+  });
+
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    deleteBtn.style.display = 'none';
+    buttons.style.display = 'none';
     confirmBox.style.display = 'block';
   });
 
@@ -126,7 +160,7 @@
 
   cancelBtn.addEventListener('click', () => {
     confirmBox.style.display = 'none';
-    deleteBtn.style.display = 'block';
+    buttons.style.display = 'block';
   });
 </script>
 {% endblock %}
