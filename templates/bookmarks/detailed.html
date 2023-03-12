@@ -175,11 +175,14 @@
     buttons.style.display = 'none';
     box.style.display = 'block';
     updateForm.style.display = 'block';
+    confirmBox.style.display = 'none';
   });
 
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault();
     buttons.style.display = 'none';
+    box.style.display = 'block';
+    updateForm.style.display = 'none';
     confirmBox.style.display = 'block';
   });
 
@@ -190,6 +193,7 @@
   cancelBtn.addEventListener('click', () => {
     box.style.display = 'none';
     buttons.style.display = 'block';
+    console.log('click click');
   });
 </script>
 {% endblock %}
