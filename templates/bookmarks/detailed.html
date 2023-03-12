@@ -122,12 +122,14 @@
   id="updateForm">
   <form method="post">
     {% csrf_token %} {{ form.as_p }}
-    <button
-      class="btn"
-      type="submit">
-      Update
-    </button>
-    <button class="btn">Cancel</button>
+    <div class="buttons">
+      <button
+        class="btn"
+        type="submit">
+        Update
+      </button>
+      <button class="btn">Cancel</button>
+    </div>
   </form>
 </div>
 
