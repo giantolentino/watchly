@@ -45,21 +45,15 @@
   }
 
   .box {
+    display: none;
+    padding: 0.5rem;
     width: 70%;
     height: 6rem;
     border: 2px solid #fff;
     border-radius: 10px;
   }
 
-  .confirmBox {
-    width: fit-content;
-    padding: 0.5rem;
-    display: none;
-    border: 2px solid #fff;
-    border-radius: 10px;
-  }
-
-  .confirmBox p {
+  #confirmBox p {
     font-size: 1.25rem;
     color: red;
     padding-bottom: 1rem;
@@ -69,14 +63,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-  }
-
-  .updateForm {
-    width: fit-content;
-    padding: 0.5rem;
-    display: none;
-    border: 2px solid #fff;
-    border-radius: 10px;
   }
 
   .updateForm p {
@@ -114,8 +100,6 @@
   </div>
 </div>
 
-<div class="centered"><div class="box"></div></div>
-
 <div
   class="buttons"
   id="buttons">
@@ -132,43 +116,50 @@
   >
 </div>
 
-<div
-  class="updateForm"
-  id="updateForm">
-  <form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <div class="buttons">
-      <button
-        class="btn"
-        type="submit">
-        Update
-      </button>
-      <button class="btn">Cancel</button>
+<div class="centered">
+  <div
+    class="box"
+    id="box">
+    <div
+      class="updateForm"
+      id="updateForm">
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <div class="buttons">
+          <button
+            class="btn"
+            type="submit">
+            Update
+          </button>
+          <button class="btn">Cancel</button>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
 
-<div
-  id="confirmBox"
-  class="confirmBox">
-  <div class="confirmBox-content">
-    <p>Are you sure?</p>
-    <div class="buttons">
-      <button
-        class="btn"
-        id="confirmBtn">
-        Yes
-      </button>
-      <button
-        class="btn"
-        id="cancelBtn">
-        No
-      </button>
+    <div
+      id="confirmBox"
+      class="confirmBox">
+      <div class="confirmBox-content">
+        <p>Are you sure?</p>
+        <div class="buttons">
+          <button
+            class="btn"
+            id="confirmBtn">
+            Yes
+          </button>
+          <button
+            class="btn"
+            id="cancelBtn">
+            No
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
+  const box = document.getElementById('box');
   const buttons = document.getElementById('buttons');
   const editBtn = document.getElementById('editBtn');
   const deleteBtn = document.getElementById('deleteBtn');
@@ -180,6 +171,7 @@
   editBtn.addEventListener('click', (e) => {
     e.preventDefault();
     buttons.style.display = 'none';
+    box.style.display = 'block';
     updateForm.style.display = 'block';
   });
 
