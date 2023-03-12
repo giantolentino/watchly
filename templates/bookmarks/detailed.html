@@ -136,7 +136,7 @@
             type="submit">
             Update
           </button>
-          <button class="btn cancelBtn">Cancel</button>
+          <div id="cancelBtn1"><button class="btn">Cancel</button></div>
         </div>
       </form>
     </div>
@@ -152,7 +152,7 @@
             id="confirmBtn">
             Yes
           </button>
-          <button class="btn cancelBtn">No</button>
+          <div id="cancelBtn2"><button class="btn">No</button></div>
         </div>
       </div>
     </div>
@@ -167,8 +167,8 @@
   const confirmBox = document.getElementById('confirmBox');
   const updateForm = document.getElementById('updateForm');
   const confirmBtn = document.getElementById('confirmBtn');
-  // const cancelBtn = document.getElementById('cancelBtn');
-  const cancelBtn = document.querySelector('.cancelBtn');
+  const cancelBtn1 = document.getElementById('cancelBtn1');
+  const cancelBtn2 = document.getElementById('cancelBtn2');
 
   editBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -190,10 +190,13 @@
     window.location.href = deleteBtn.href;
   });
 
-  cancelBtn.addEventListener('click', () => {
+  cancelBtn1.addEventListener('click', () => {
     box.style.display = 'none';
     buttons.style.display = 'block';
-    console.log('click click');
+  });
+  cancelBtn2.addEventListener('click', () => {
+    box.style.display = 'none';
+    buttons.style.display = 'block';
   });
 </script>
 {% endblock %}
