@@ -136,7 +136,7 @@
             type="submit">
             Update
           </button>
-          <button class="btn">Cancel</button>
+          <button class="btn cancelBtn">Cancel</button>
         </div>
       </form>
     </div>
@@ -152,11 +152,7 @@
             id="confirmBtn">
             Yes
           </button>
-          <button
-            class="btn"
-            id="cancelBtn">
-            No
-          </button>
+          <button class="btn cancelBtn">No</button>
         </div>
       </div>
     </div>
@@ -171,7 +167,8 @@
   const confirmBox = document.getElementById('confirmBox');
   const updateForm = document.getElementById('updateForm');
   const confirmBtn = document.getElementById('confirmBtn');
-  const cancelBtn = document.getElementById('cancelBtn');
+  // const cancelBtn = document.getElementById('cancelBtn');
+  const cancelBtn = document.querySelector('.cancelBtn');
 
   editBtn.addEventListener('click', (e) => {
     e.preventDefault();
