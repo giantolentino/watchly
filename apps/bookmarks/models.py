@@ -12,7 +12,7 @@ class Bookmark(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     description = models.TextField(blank=True, null=True)
     priority = models.PositiveSmallIntegerField(
-        default=1, validators=[MinValueValidator(1), MaxValueValidator(10)]
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
     MEDIA_TYPE_CHOICES = [
         ("tv", "Tv"),
