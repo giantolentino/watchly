@@ -87,3 +87,9 @@
   transform: translateY(-50%);
   color: #333;
 }
+
+/* Style for the options */
+.select-container select option {
+  background-color: #f9f9f9;
+  color: #333;
+}
