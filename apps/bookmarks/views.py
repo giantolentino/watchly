@@ -11,6 +11,27 @@ class BookmarksView(ListView):
     context_object_name = "entries"
     template_name = "bookmarks/index.html"
 
+    def get_queryset(self):
+        queryset = Bookmark.objects.filter(user=self.request.user).order_by(
+            "-date_added"
+        )
+        sort = self.request.GET.get("sort_by")
+        print(self.request.GET.get("sort_by"))
+        queryset = sort_by(queryset, sort)
+        return queryset
+
+
+def sort_by(queryset, filter_by):
+    ordering = {
+        "1": "title",
+        "2": "-title",
+        "3": "-priority",
+        "4": "priority",
+        "5": "date_added",
+        "6": "-date_added",
+    }
+    return queryset.order_by(ordering.get(filter_by, "-date_added"))
+
 
 class BookmarkDetailView(DetailView):
     model = Bookmark

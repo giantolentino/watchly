@@ -5,21 +5,24 @@
 {% endblock %}
 
 <div class="sort-container">
-  <select
-    class="sort"
-    name="sort_by">
-    <option
-      value=""
-      selected>
-      Sort by..
-    </option>
-    <option value="1">Alphabetical (A-Z)</option>
-    <option value="2">Alphabetical (Z-A)</option>
-    <option value="3">Priority (highest)</option>
-    <option value="4">Priority (lowest)</option>
-    <option value="5">Date Added (earliest)</option>
-    <option value="6">Date Added (latest)</option>
-  </select>
+  <form method="GET">
+    <select
+      class="sort"
+      name="sort_by"
+      id="sort_by">
+      <option
+        value=""
+        selected>
+        Sort by..
+      </option>
+      <option value="1">Alphabetical (A-Z)</option>
+      <option value="2">Alphabetical (Z-A)</option>
+      <option value="3">Priority (highest)</option>
+      <option value="4">Priority (lowest)</option>
+      <option value="5">Date Added (earliest)</option>
+      <option value="6">Date Added (latest)</option>
+    </select>
+  </form>
 </div>
 
 <div class="poster-grid">
@@ -34,42 +37,15 @@
   {% endfor %}
 </div>
 
-<!-- <div class="modal">
-  <div class="modal-content">
-    <img
-      src=""
-      alt="poster image" />
-  </div>
-</div> -->
-
-<!-- <script>
-  // get the modal and modal content
-  const modal = document.querySelector('.modal');
-  const modalContent = document.querySelector('.modal-content');
-
-  // get all the poster cards and add click event listener
-  const posterCards = document.querySelectorAll('.poster-card');
-  posterCards.forEach((card) => {
-    const img = card.querySelector('img');
-    img.addEventListener('click', () => {
-      // set the modal image source to the clicked image source
-      modalContent.innerHTML = `<img src="${img.src}" alt="poster image" />`;
-      // show the modal
-      modal.style.display = 'block';
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var select = document.getElementById('sort_by');
+    select.addEventListener('change', function () {
+      var url = new URL(window.location.href);
+      var params = new URLSearchParams(url.search);
+      params.set('sort_by', select.value);
+      url.search = params.toString();
+      window.location.href = url.toString();
     });
   });
-
-  // add click event listener to close the modal when clicked outside of the modal content
-  modal.addEventListener('click', (event) => {
-    if (event.target != modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  // add keydown event listener to close the modal when escape key is pressed
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      modal.style.display = 'none';
-    }
-  });
-</script> -->
+</script>
