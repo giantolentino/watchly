@@ -93,3 +93,14 @@
   background-color: #f9f9f9;
   color: #333;
 }
+
+/* Style for the selected option */
+.sort-container select option:checked {
+  background-color: #6c63ff;
+  color: #fff;
+}
+
+/* Style for the hover effect on options */
+.select-container select option:hover {
+  background-color: #eee;
+}
