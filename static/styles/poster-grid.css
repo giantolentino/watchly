@@ -58,6 +58,7 @@
 
 /* Style for the select box container */
 .sort-container {
+  display: inline-block;
   position: relative;
   font-size: 1rem;
   color: #333;
@@ -83,7 +84,7 @@
   content: '\25BC';
   position: absolute;
   top: 50%;
-  right: 1.25rem;
+  right: 0.25rem;
   transform: translateY(-50%);
   color: #333;
 }
