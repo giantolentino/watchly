@@ -9,7 +9,8 @@
     <select
       class="sort"
       name="sort_by"
-      id="sort_by">
+      id="sort_by"
+      onchange="this.form.submit()">
       <option
         value=""
         selected>
@@ -40,12 +41,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var select = document.getElementById('sort_by');
-    select.addEventListener('change', function () {
-      var url = new URL(window.location.href);
-      var params = new URLSearchParams(url.search);
-      params.set('sort_by', select.value);
-      url.search = params.toString();
-      window.location.href = url.toString();
-    });
+    select.value = '{{ request.GET.sort_by }}';
+    console.log('Hello');
   });
 </script>
