@@ -31,7 +31,7 @@
   outline: none;
 }
 
-.modal {
+/* .modal {
   display: none;
   position: fixed;
   z-index: 9999;
@@ -54,4 +54,13 @@
   border: 2px solid whitesmoke;
   border-radius: 10px;
   max-height: 70vh;
+} */
+
+/* Style for the select box container */
+.sort-container {
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
 }
