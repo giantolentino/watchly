@@ -77,3 +77,13 @@
   border-radius: 1rem;
   appearance: none;
 }
+
+/* Style for the arrow icon */
+.sort-container::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  transform: translateY(-50%);
+  color: #333;
+}
