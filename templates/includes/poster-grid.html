@@ -4,6 +4,15 @@
   href="{% static 'styles/poster-grid.css' %}" />
 {% endblock %}
 
+<select name="sort_by">
+  <option value="1">Alphabetical (A-Z)</option>
+  <option value="2">Alphabetical (Z-A)</option>
+  <option value="3">Priority (highest)</option>
+  <option value="4">Priority (lowest)</option>
+  <option value="5">Date Added (earliest)</option>
+  <option value="6">Date Added (latest)</option>
+</select>
+
 <div class="poster-grid">
   {% for entry in entries %}
   <a
