@@ -3,6 +3,16 @@ from .models import Bookmark
 
 
 class BookmarkForm(forms.ModelForm):
+    PRIORITY_CHOICES = [
+        (1, "1"),
+        (2, "2"),
+        (3, "3"),
+        (4, "4"),
+        (5, "5"),
+    ]
+
+    priority = forms.ChoiceField(choices=PRIORITY_CHOICES, initial=1)
+
     class Meta:
         model = Bookmark
         fields = [
@@ -23,13 +33,6 @@ class BookmarkForm(forms.ModelForm):
             "tmdb_id": forms.HiddenInput(),
             "description": forms.HiddenInput(),
             "media_type": forms.HiddenInput(),
-            "priority": forms.TextInput(
-                attrs={
-                    "type": "text",
-                    "inputmode": "numeric",
-                    "pattern": "[0-9]+",
-                }
-            ),
         }
 
 
