@@ -6,6 +6,7 @@ html {
 
 main {
   padding: 1rem;
+  background-color: #2b2a33;
   min-height: calc(100vh - 4rem);
 }
 
