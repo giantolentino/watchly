@@ -2,15 +2,16 @@ from django import forms
 from .models import Bookmark
 
 
-class BookmarkForm(forms.ModelForm):
-    PRIORITY_CHOICES = [
-        (1, "1"),
-        (2, "2"),
-        (3, "3"),
-        (4, "4"),
-        (5, "5"),
-    ]
+PRIORITY_CHOICES = [
+    (1, "1"),
+    (2, "2"),
+    (3, "3"),
+    (4, "4"),
+    (5, "5"),
+]
 
+
+class BookmarkForm(forms.ModelForm):
     priority = forms.ChoiceField(choices=PRIORITY_CHOICES, initial=1)
 
     class Meta:
@@ -37,16 +38,10 @@ class BookmarkForm(forms.ModelForm):
 
 
 class UpdateBookmarkForm(forms.ModelForm):
-    PRIORITY_CHOICES = [
-        (1, "1"),
-        (2, "2"),
-        (3, "3"),
-        (4, "4"),
-        (5, "5"),
-    ]
-
-    priority = forms.ChoiceField(choices=PRIORITY_CHOICES)
+    priority = forms.ChoiceField(choices=PRIORITY_CHOICES, initial=1)
 
     class Meta:
         model = Bookmark
-        fields = ["priority"]
+        fields = [
+            "priority",
+        ]
