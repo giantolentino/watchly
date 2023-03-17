@@ -34,17 +34,16 @@ class BookmarkForm(forms.ModelForm):
 
 
 class UpdateBookmarkForm(forms.ModelForm):
+    PRIORITY_CHOICES = [
+        (1, "1"),
+        (2, "2"),
+        (3, "3"),
+        (4, "4"),
+        (5, "5"),
+    ]
+
+    priority = forms.ChoiceField(choices=PRIORITY_CHOICES)
+
     class Meta:
         model = Bookmark
-        fields = [
-            "priority",
-        ]
-        widgets = {
-            "priority": forms.TextInput(
-                attrs={
-                    "type": "text",
-                    "inputmode": "numeric",
-                    "pattern": "[0-9]+",
-                }
-            ),
-        }
+        fields = ["priority"]
