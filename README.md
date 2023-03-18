@@ -6,7 +6,7 @@ Watchly is a web application I developed to expand my knowledge of web developme
 
  - Browse and search for movies and TV shows.
  - Add to bookmarks with a priority level. 
- - Responsive design that works on mobile and desktop.
+
 
 ### While building Watchly, I'm learning:
 - Building Dynamic Web Applications with Django
