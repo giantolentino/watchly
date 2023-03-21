@@ -24,15 +24,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  line-height: 1.2rem;
-  font-size: 1.2rem;
+  line-height: 1.25rem;
+  font-size: 1.25rem;
   color: #fff;
   padding: 0.5rem;
 }
 
 .section-posters {
   padding: 0.5rem;
-  border: 1px solid hotpink;
   border-radius: 0.5rem;
   flex: 1; /* take up remaining space */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.25rem;
+}
+
+.poster {
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  overflow: hidden;
+  border: 1px solid white;
 }
