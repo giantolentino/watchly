@@ -11,36 +11,39 @@
   href="{% static 'styles/homepage.css' %}" />
 {% endblock %}
 <!-- prettier-ignore -->
-{% block main %} 
+{% block main %}
 
-{% if not request.user.is_authenticated %}
-<h1
-  class="welcome-msg"
-  style="text-align: center">
-  WELCOME TO WATCHLY
-</h1>
-<div class="wrap">
-  <a
-    class="btn"
-    href="{% url 'accounts:login' %}"
-    >Login</a
-  >
-  <a
-    class="btn"
-    href="{% url 'accounts:register' %}"
-    >Register</a
-  >
+<div id="homepage">
+  {% if not request.user.is_authenticated %}
+  <h1
+    class="welcome-msg"
+    style="text-align: center">
+    WELCOME TO WATCHLY
+  </h1>
+  <div class="wrap">
+    <a
+      class="btn"
+      href="{% url 'accounts:login' %}"
+      >Login</a
+    >
+    <a
+      class="btn"
+      href="{% url 'accounts:register' %}"
+      >Register</a
+    >
+  </div>
+
+  {% else %}
+  <h1 class="welcome-msg">WELCOME, {{ request.user.username }}</h1>
 </div>
 
-{% else %}
-<h1 class="welcome-msg">WELCOME, {{ request.user.username }}</h1>
-<div class="wrap">
+<!-- <div class="wrap">
   <a
     class="btn"
     href="{% url 'accounts:logout' %}"
     >Logout</a
   >
-</div>
+</div> -->
 
 <!-- prettier-ignore -->
 {% endif %} 

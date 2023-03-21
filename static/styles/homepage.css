@@ -1,4 +1,12 @@
+#homepage {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 .welcome-msg {
-  font-size: max(1.5rem, 7vw);
+  font-size: max(1.5rem, 5vw);
   text-transform: uppercase;
 }
