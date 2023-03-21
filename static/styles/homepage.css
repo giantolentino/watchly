@@ -27,3 +27,9 @@
   color: #fff;
   padding: 0.5rem;
 }
+
+.section-posters {
+  padding: 0.5rem;
+  border: 1px solid hotpink;
+  border-radius: 0.5rem;
+}
