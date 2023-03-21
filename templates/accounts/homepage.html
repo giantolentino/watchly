@@ -36,7 +36,12 @@
   {% else %}
   <h1 class="welcome-msg">WELCOME, {{ request.user.username }}</h1>
 
-  <section id="bookmarks"></section>
+  <section id="bookmarks">
+    <div class="section-header">
+      <p class="section-title">BOOKMARKS</p>
+      <p class="section-count">(42)</p>
+    </div>
+  </section>
 </div>
 
 <!-- <div class="wrap">
