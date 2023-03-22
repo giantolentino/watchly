@@ -10,9 +10,9 @@
   rel="stylesheet"
   href="{% static 'styles/homepage.css' %}" />
 {% endblock %}
+
 <!-- prettier-ignore -->
 {% block main %}
-
 <div id="homepage">
   {% if not request.user.is_authenticated %}
   <h1
@@ -38,23 +38,24 @@
 
   <section id="bookmarks">
     <div class="section-header">
-      <p class="section-title">BOOKMARKS</p>
-      <p class="section-count">(42)</p>
+      <a href="{% url 'bookmarks:index' %}"
+        ><p class="section-title">BOOKMARKS</p></a
+      >
+      <p class="section-count">( {{ bookmark_count }} )</p>
     </div>
 
     <div class="section-posters">
+      {% for bookmark in bookmarks %}
       <div class="poster">
-        <img
-          src="https://www.themoviedb.org/t/p/original/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" />
+        <a
+          href="{% url 'bookmarks:detailed' bookmark.id %}"
+          class="poster-card">
+          <img
+            src="https://image.tmdb.org/t/p/original{{ bookmark.posterpath }}"
+            alt="{{ bookmark.title }}" />
+        </a>
       </div>
-      <div class="poster">
-        <img
-          src="https://www.themoviedb.org/t/p/original/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" />
-      </div>
-      <div class="poster">
-        <img
-          src="https://www.themoviedb.org/t/p/original/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" />
-      </div>
+      {% endfor %}
     </div>
   </section>
 </div>
