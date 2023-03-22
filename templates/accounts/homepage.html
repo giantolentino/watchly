@@ -47,9 +47,13 @@
     <div class="section-posters">
       {% for bookmark in bookmarks %}
       <div class="poster">
-        <img
-          src="https://image.tmdb.org/t/p/original{{ bookmark.posterpath }}"
-          alt="{{ bookmark.title }}" />
+        <a
+          href="{% url 'bookmarks:detailed' bookmark.id %}"
+          class="poster-card">
+          <img
+            src="https://image.tmdb.org/t/p/original{{ bookmark.posterpath }}"
+            alt="{{ bookmark.title }}" />
+        </a>
       </div>
       {% endfor %}
     </div>
