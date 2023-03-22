@@ -30,6 +30,10 @@
   padding: 0.5rem;
 }
 
+.section-title {
+  cursor: pointer;
+}
+
 .section-posters {
   padding: 0.5rem;
   border-radius: 0.5rem;
