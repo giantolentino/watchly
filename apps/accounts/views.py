@@ -2,10 +2,21 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.views import LoginView, LogoutView
+from apps.bookmarks.models import Bookmark
 
 
 class HomePageView(TemplateView):
     template_name = "accounts/homepage.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["bookmarks"] = Bookmark.objects.filter(
+            user_id=self.request.user.id
+        ).order_by("-date_added")[:3]
+        context["bookmark_count"] = Bookmark.objects.filter(
+            user_id=self.request.user.id
+        ).count()
+        return context
 
 
 class LoginView(LoginView):
