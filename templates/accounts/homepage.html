@@ -43,18 +43,13 @@
     </div>
 
     <div class="section-posters">
+      {% for bookmark in bookmarks %}
       <div class="poster">
         <img
-          src="https://www.themoviedb.org/t/p/original/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" />
+          src="https://image.tmdb.org/t/p/original{{ bookmark.posterpath }}"
+          alt="{{ bookmark.title }}" />
       </div>
-      <div class="poster">
-        <img
-          src="https://www.themoviedb.org/t/p/original/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" />
-      </div>
-      <div class="poster">
-        <img
-          src="https://www.themoviedb.org/t/p/original/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" />
-      </div>
+      {% endfor %}
     </div>
   </section>
 </div>
