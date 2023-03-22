@@ -47,6 +47,7 @@
   aspect-ratio: 2/3;
   overflow: hidden;
   border: 1px solid white;
+  cursor: pointer;
 }
 
 .poster img {
