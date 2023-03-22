@@ -10,9 +10,9 @@
   rel="stylesheet"
   href="{% static 'styles/homepage.css' %}" />
 {% endblock %}
+
 <!-- prettier-ignore -->
 {% block main %}
-
 <div id="homepage">
   {% if not request.user.is_authenticated %}
   <h1
@@ -38,7 +38,10 @@
 
   <section id="bookmarks">
     <div class="section-header">
-      <p class="section-title">BOOKMARKS</p>
+      <a href="{% url 'bookmarks:index' %}"
+        ><p class="section-title">BOOKMARKS</p></a
+      >
+
       <p class="section-count">(42)</p>
     </div>
 
