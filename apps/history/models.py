@@ -26,6 +26,10 @@ class Entry(models.Model):
         default="tv",
     )
 
+    # Each record must have unique combo of following fields.
+    class Meta:
+        unique_together = (("user", "tmdb_id", "media_type"),)
+
     def __str__(self):
         return self.title
 
