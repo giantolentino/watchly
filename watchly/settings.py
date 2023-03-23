@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "apps.accounts",
     "apps.bookmarks",
+    "apps.history",
     "apps.search",
 ]
 

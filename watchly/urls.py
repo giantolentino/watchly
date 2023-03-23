@@ -21,4 +21,5 @@ urlpatterns = [
     path("", include("apps.accounts.urls")),
     path("search/", include("apps.search.urls")),
     path("bookmarks/", include("apps.bookmarks.urls")),
+    path("history/", include("apps.history.urls")),
 ]
