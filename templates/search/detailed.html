@@ -44,7 +44,7 @@
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
-  <form
+  <!-- <form
     method="POST"
     id="bookmark-form">
     {% csrf_token %}
@@ -60,6 +60,80 @@
       </button>
     </div>
   </form>
+
+  <form
+    method="POST"
+    id="history-form">
+    {% csrf_token %}
+    <div class="history-form">{{ history_form.as_p }}</div>
+
+    <div class="">
+      <button
+        type="submit"
+        value="History"
+        class="btn"
+        style="width: fit-content; font-size: 0.75rem">
+        History
+      </button>
+    </div>
+  </form> -->
+
+  <button
+    class="btn"
+    onclick="toggleBookmarkForm()">
+    Bookmark
+  </button>
+  <div
+    id="bookmark-form"
+    style="display: none">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="bookmark-form">{{ bookmark_form.as_p }}</div>
+      <button
+        type="submit"
+        class="btn">
+        Save
+      </button>
+    </form>
+  </div>
+
+  <button
+    class="btn"
+    onclick="toggleHistoryForm()">
+    History
+  </button>
+  <div
+    id="history-form"
+    style="display: none">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="history-form">{{ history_form.as_p }}</div>
+      <button
+        type="submit"
+        class="btn">
+        Save
+      </button>
+    </form>
+  </div>
 </div>
+<script>
+  function toggleBookmarkForm() {
+    var x = document.getElementById('bookmark-form');
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
+  }
+
+  function toggleHistoryForm() {
+    var x = document.getElementById('history-form');
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
+  }
+</script>
 
 {% endblock %}
