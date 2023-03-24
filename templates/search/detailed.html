@@ -8,6 +8,10 @@
   href="{% static 'styles/detailed.css' %}" />
 
 <style>
+  .btn {
+    width: fit-content;
+  }
+
   .bookmark-form {
     padding-bottom: 1rem;
   }
@@ -44,22 +48,78 @@
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
-  <form
-    method="POST"
-    id="bookmark-form">
-    {% csrf_token %}
-    <div class="bookmark-form">{{ bookmark_form.as_p }}</div>
 
-    <div class="">
+  <button
+    class="btn"
+    onclick="toggleBookmarkForm()"
+    id="bookmark-btn">
+    Bookmark
+  </button>
+  <div
+    id="bookmark-form"
+    style="display: none">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="bookmark-form">{{ bookmark_form.as_p }}</div>
       <button
         type="submit"
-        value="Bookmark"
         class="btn"
-        style="width: fit-content; font-size: 0.75rem">
-        Bookmark
+        name="bookmark_submit">
+        Save
       </button>
-    </div>
-  </form>
+    </form>
+  </div>
+
+  <button
+    class="btn"
+    onclick="toggleHistoryForm()"
+    id="history-btn">
+    History
+  </button>
+  <div
+    id="history-form"
+    style="display: none">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="history-form">{{ history_form.as_p }}</div>
+      <button
+        type="submit"
+        class="btn"
+        name="history_submit">
+        Save
+      </button>
+    </form>
+  </div>
 </div>
+<script>
+  function toggleBookmarkForm() {
+    var x = document.getElementById('bookmark-form');
+    var y = document.getElementById('bookmark-btn');
+    var z = document.getElementById('history-btn');
+
+    y.style.display = 'none';
+    z.style.display = 'none';
+
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
+  }
+
+  function toggleHistoryForm() {
+    var x = document.getElementById('history-form');
+    var y = document.getElementById('bookmark-btn');
+    var z = document.getElementById('history-btn');
+
+    y.style.display = 'none';
+    z.style.display = 'none';
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
+  }
+</script>
 
 {% endblock %}

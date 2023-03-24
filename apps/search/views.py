@@ -6,6 +6,7 @@ from datetime import datetime
 from requests import get
 import requests
 from apps.bookmarks.forms import BookmarkForm
+from apps.history.forms import HistoryEntryForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.db import IntegrityError
@@ -54,6 +55,18 @@ class DetailedView(View):
             },
         )
 
+        history_form = HistoryEntryForm(
+            request.POST or None,
+            initial={
+                "title": title,
+                "year": year,
+                "posterpath": result["poster_path"],
+                "description": result["overview"],
+                "media_type": type,
+                "tmdb_id": result_id,
+            },
+        )
+
         return render(
             request,
             "search/detailed.html",
@@ -64,6 +77,7 @@ class DetailedView(View):
                 "date": date,
                 "trailer": youtube_url,
                 "bookmark_form": bookmark_form,
+                "history_form": history_form,
             },
         )
 
@@ -73,13 +87,20 @@ class DetailedView(View):
         result, title, year, date = get_result_data(result_id, type)
 
         bookmark_form = BookmarkForm(request.POST or None)
+        history_form = HistoryEntryForm(request.POST or None)
 
-        if bookmark_form.is_valid():
+        if bookmark_form.is_valid() or history_form.is_valid():
             bookmark_form.instance.user = request.user
+            history_form.instance.user = request.user
 
             try:
-                bookmark_form.save()
-                return HttpResponseRedirect(reverse_lazy("bookmarks:index"))
+                if "bookmark_submit" in request.POST:
+                    bookmark_form.save()
+                    return HttpResponseRedirect(reverse_lazy("bookmarks:index"))
+                elif "history_submit" in request.POST:
+                    history_form.save()
+                    return HttpResponseRedirect(reverse_lazy("history:index"))
+
             except IntegrityError:
                 bookmark_form.add_error(None, "Bookmark already exists.")
         else:
@@ -95,6 +116,7 @@ class DetailedView(View):
                 "date": date,
                 "trailer": youtube_url,
                 "bookmark_form": bookmark_form,
+                "history_form": history_form,
             },
         )
 
