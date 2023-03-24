@@ -94,9 +94,13 @@ class DetailedView(View):
             history_form.instance.user = request.user
 
             try:
-                bookmark_form.save()
-                history_form.save()
-                return HttpResponseRedirect(reverse_lazy("bookmarks:index"))
+                if "bookmark_submit" in request.POST:
+                    bookmark_form.save()
+                    return HttpResponseRedirect(reverse_lazy("bookmarks:index"))
+                elif "history_submit" in request.POST:
+                    history_form.save()
+                    return HttpResponseRedirect(reverse_lazy("history:index"))
+
             except IntegrityError:
                 bookmark_form.add_error(None, "Bookmark already exists.")
         else:
