@@ -8,6 +8,10 @@
   href="{% static 'styles/detailed.css' %}" />
 
 <style>
+  .btn {
+    width: fit-content;
+  }
+
   .bookmark-form {
     padding-bottom: 1rem;
   }
@@ -91,7 +95,8 @@
       <div class="bookmark-form">{{ bookmark_form.as_p }}</div>
       <button
         type="submit"
-        class="btn">
+        class="btn"
+        name="bookmark_submit">
         Save
       </button>
     </form>
@@ -110,7 +115,8 @@
       <div class="history-form">{{ history_form.as_p }}</div>
       <button
         type="submit"
-        class="btn">
+        class="btn"
+        name="history_submit">
         Save
       </button>
     </form>
