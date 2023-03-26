@@ -1,0 +1,108 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}{% load static %}
+
+<!-- prettier-ignore -->
+{% block head %}
+
+<style>
+  .btn {
+    width: 4rem;
+    font-size: 0.75rem;
+  }
+  .info,
+  .detailed-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .poster-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .priority,
+  .overview,
+  .added-on {
+    font-size: 1rem;
+  }
+
+  .trailer {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+
+  .centered {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .box {
+    display: none;
+    padding: 0.5rem;
+    width: 50%;
+    height: 6rem;
+    border: 2px solid #fff;
+    border-radius: 10px;
+  }
+
+  #updatezForm,
+  #confirmBox {
+    display: none;
+  }
+
+  #confirmBox p {
+    font-size: 1.25rem;
+    color: red;
+    padding-bottom: 1rem;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .updateForm p {
+    padding-bottom: 1rem;
+  }
+
+  .updateForm input[type='text'] {
+    width: 1.75rem;
+    text-align: center;
+    height: 1.75rem;
+  }
+
+  .updateForm button {
+    width: 100%;
+  }
+</style>
+<!-- <link
+  rel="stylesheet"
+  href="{% static 'styles/detailed.css' %}" /> -->
+{% endblock %}
+
+<!-- prettier-ignore -->
+{% block main %}
+
+<div class="detailed-grid">
+  <img
+    class="poster-img"
+    src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}" />
+
+  <div class="info">
+    <h1 class="title">{{ entry.title }} ({{ entry.year }})</h1>
+    <h3 class="added-on">Added On: {{ entry.date_added }}</h3>
+    <p class="overview">Overview: "{{ entry.description }}"</p>
+    <p class="feedback">Feedback: {{ entry.feedback }}</p>
+  </div>
+</div>
+
+{% endblock %}
