@@ -59,7 +59,14 @@
     </div>
   </section>
 
-  <section id="History"></section>
+  <section id="history">
+    <div class="section-header">
+      <a href="{% url 'bookmarks:index' %}"
+        ><p class="section-title">HISTORY</p></a
+      >
+      <p class="section-count">( {{ history_count }} )</p>
+    </div>
+    <section>
 </div>
 
 <!-- <div class="wrap">
