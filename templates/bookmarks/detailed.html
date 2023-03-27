@@ -6,7 +6,7 @@
 
 <style>
   .btn {
-    width: 4rem;
+    width: fit-content;
     font-size: 0.75rem;
   }
   .info,
@@ -108,6 +108,12 @@
 <div
   class="buttons"
   id="buttons">
+  <a
+    href="{% url 'bookmarks:move' entry.id %}"
+    class="btn"
+    id="bookmarkBtn"
+    >Bookmark</a
+  >
   <a
     href="#"
     class="btn"
