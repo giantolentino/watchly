@@ -105,6 +105,10 @@
   </div>
 </div>
 
-<a href="{% url 'history:delete' entry.id %}">DELETE</a>
+<a
+  class="btn"
+  href="{% url 'history:delete' entry.id %}"
+  >DELETE</a
+>
 
 {% endblock %}
