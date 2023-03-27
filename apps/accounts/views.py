@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from apps.bookmarks.models import Bookmark
+from apps.history.models import Entry
 
 
 class HomePageView(TemplateView):
@@ -14,6 +15,12 @@ class HomePageView(TemplateView):
             user_id=self.request.user.id
         ).order_by("-date_added")[:3]
         context["bookmark_count"] = Bookmark.objects.filter(
+            user_id=self.request.user.id
+        ).count()
+        context["entries"] = Entry.objects.filter(
+            user_id=self.request.user.id
+        ).order_by("-date_added")[:3]
+        context["history_count"] = Entry.objects.filter(
             user_id=self.request.user.id
         ).count()
         return context
