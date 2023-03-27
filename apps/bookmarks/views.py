@@ -4,6 +4,8 @@ from .models import Bookmark
 from django.shortcuts import get_object_or_404, redirect
 from .forms import UpdateBookmarkForm
 from django.shortcuts import render
+from apps.history.models import Entry
+from datetime import date
 
 
 class BookmarksView(ListView):
@@ -61,3 +63,23 @@ def delete_bookmark(request, pk):
     bookmark = get_object_or_404(Bookmark, pk=pk)
     bookmark.delete()
     return redirect("bookmarks:index")
+
+
+def move_bookmark_to_history(request, pk):
+    bookmark = Bookmark.objects.get(id=pk)
+
+    entry = Entry(
+        user=bookmark.user,
+        title=bookmark.title,
+        year=bookmark.year,
+        posterpath=bookmark.posterpath,
+        tmdb_id=bookmark.tmdb_id,
+        description=bookmark.description,
+        media_type=bookmark.media_type,
+        date_watched=date.today(),
+    )
+    entry.save()
+
+    bookmark.delete()
+
+    return redirect("history:index")
