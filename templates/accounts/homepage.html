@@ -58,6 +58,28 @@
       {% endfor %}
     </div>
   </section>
+
+  <section id="history">
+    <div class="section-header">
+      <a href="{% url 'history:index' %}"
+        ><p class="section-title">HISTORY</p></a
+      >
+      <p class="section-count">( {{ history_count }} )</p>
+    </div>
+    <div class="section-posters">
+      {% for entry in entries %}
+      <div class="poster">
+        <a
+          href="{% url 'history:detailed' entry.id %}"
+          class="poster-card">
+          <img
+            src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}"
+            alt="{{ entry.title }}" />
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    <section>
 </div>
 
 <!-- <div class="wrap">
