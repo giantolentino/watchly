@@ -11,6 +11,12 @@
   text-transform: uppercase;
 }
 
+.sections {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 2.5rem;
+}
+
 #history,
 #bookmarks {
   width: 100%;
