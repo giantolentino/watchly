@@ -91,7 +91,11 @@
   </div>
 </div>
 
-<button class="btn">Update</button>
+<button
+  class="btn"
+  id="updateBtn">
+  Update
+</button>
 
 <div
   class="updateForm"
@@ -133,9 +137,18 @@
 </div>
 
 <script>
+  const updateBtn = document.getElementById('updateBtn');
+  const updateForm = document.getElementById('updateForm');
   const deleteBtn = document.getElementById('deleteBtn');
   const confirmBox = document.getElementById('confirmBox');
   const confirmBtn = document.getElementById('confirmBtn');
+
+  updateBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    updateBtn.style.display = 'none';
+    updateForm.style.display = 'block';
+    deleteBtn.style.display = 'none';
+  });
 
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault();
