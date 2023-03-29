@@ -28,3 +28,14 @@ class HistoryEntryForm(ModelForm):
                 attrs={"class": "form-control", "rows": 4, "required": False}
             ),
         }
+
+
+class UpdateHistoryForm(forms.ModelForm):
+    class Meta:
+        model = Entry
+        fields = ["rating", "date_watched", "feedback"]
+        widgets = {
+            "rating": forms.NumberInput(attrs={"class": "form-control"}),
+            "date_watched": forms.DateInput(attrs={"class": "form-control"}),
+            "feedback": forms.Textarea(attrs={"class": "form-control", "rows": 8}),
+        }

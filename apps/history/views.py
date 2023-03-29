@@ -1,7 +1,8 @@
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from .models import Entry
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
+from .forms import UpdateHistoryForm
 
 
 class HistoryView(ListView):
@@ -18,6 +19,24 @@ class HistoryDetailView(DetailView):
     model = Entry
     template_name = "history/detailed.html"
     context_object_name = "entry"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = UpdateHistoryForm(instance=self.object)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        history_entry = self.get_object()
+        form = UpdateHistoryForm(request.POST, instance=history_entry)
+        if form.is_valid():
+            form.save()
+            return render(
+                request, self.template_name, {"entry": history_entry, "form": form}
+            )
+        else:
+            return render(
+                request, self.template_name, {"entry": history_entry, "form": form}
+            )
 
 
 def delete_history(request, pk):

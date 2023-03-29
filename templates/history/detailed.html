@@ -53,6 +53,7 @@
     border-radius: 10px;
   }
 
+  #updateForm,
   #confirmBox {
     display: none;
   }
@@ -67,6 +68,39 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+  }
+
+  th {
+    width: 25%;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  td {
+    width: 75%;
+  }
+
+  th,
+  td {
+    word-wrap: break-word;
+  }
+
+  textarea,
+  input[type='text'],
+  input[type='number'] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
   }
 </style>
 <!-- <link
@@ -88,6 +122,31 @@
     <p class="overview">Overview: "{{ entry.description }}"</p>
     <p class="feedback">Feedback: {{ entry.feedback }}</p>
   </div>
+</div>
+
+<button
+  class="btn"
+  id="updateBtn">
+  Update
+</button>
+
+<div
+  class="updateForm"
+  id="updateForm">
+  <form method="post">
+    <table>
+      {% csrf_token %} {{ form.as_table }}
+    </table>
+
+    <div class="buttons">
+      <button
+        class="btn"
+        type="submit">
+        Update
+      </button>
+      <div id="cancelBtn1"><button class="btn">Cancel</button></div>
+    </div>
+  </form>
 </div>
 
 <a
@@ -114,9 +173,18 @@
 </div>
 
 <script>
+  const updateBtn = document.getElementById('updateBtn');
+  const updateForm = document.getElementById('updateForm');
   const deleteBtn = document.getElementById('deleteBtn');
   const confirmBox = document.getElementById('confirmBox');
   const confirmBtn = document.getElementById('confirmBtn');
+
+  updateBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    updateBtn.style.display = 'none';
+    updateForm.style.display = 'block';
+    deleteBtn.style.display = 'none';
+  });
 
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault();
