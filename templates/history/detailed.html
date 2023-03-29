@@ -113,6 +113,22 @@
   </div>
 </div>
 
+<div
+  class="updateForm"
+  id="updateForm">
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <div class="buttons">
+      <button
+        class="btn"
+        type="submit">
+        Update
+      </button>
+      <div id="cancelBtn1"><button class="btn">Cancel</button></div>
+    </div>
+  </form>
+</div>
+
 <script>
   const deleteBtn = document.getElementById('deleteBtn');
   const confirmBox = document.getElementById('confirmBox');
