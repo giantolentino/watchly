@@ -5,7 +5,7 @@ html {
 }
 
 main {
-  min-height: calc(100vh - 4rem); /* -4rem for navbar */
+  height: calc(100vh - 4rem); /* -4rem for navbar */
   padding: 1rem;
   color: #f9f9fb;
   background-color: #2b2a33;
