@@ -36,50 +36,52 @@
   {% else %}
   <h1 class="welcome-msg">WELCOME, {{ request.user.username }}</h1>
 
-  <section id="bookmarks">
-    <div class="section-header">
-      <a href="{% url 'bookmarks:index' %}"
-        ><p class="section-title">BOOKMARKS</p></a
-      >
-      <p class="section-count">( {{ bookmark_count }} )</p>
-    </div>
-
-    <div class="section-posters">
-      {% for bookmark in bookmarks %}
-      <div class="poster">
-        <a
-          href="{% url 'bookmarks:detailed' bookmark.id %}"
-          class="poster-card">
-          <img
-            src="https://image.tmdb.org/t/p/original{{ bookmark.posterpath }}"
-            alt="{{ bookmark.title }}" />
-        </a>
+  <div class="sections">
+    <section id="bookmarks">
+      <div class="section-header">
+        <a href="{% url 'bookmarks:index' %}"
+          ><p class="section-title">BOOKMARKS</p></a
+        >
+        <p class="section-count">( {{ bookmark_count }} )</p>
       </div>
-      {% endfor %}
-    </div>
-  </section>
 
-  <section id="history">
-    <div class="section-header">
-      <a href="{% url 'history:index' %}"
-        ><p class="section-title">HISTORY</p></a
-      >
-      <p class="section-count">( {{ history_count }} )</p>
-    </div>
-    <div class="section-posters">
-      {% for entry in entries %}
-      <div class="poster">
-        <a
-          href="{% url 'history:detailed' entry.id %}"
-          class="poster-card">
-          <img
-            src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}"
-            alt="{{ entry.title }}" />
-        </a>
+      <div class="section-posters">
+        <!-- {% for bookmark in bookmarks %}
+        <div class="poster">
+          <a
+            href="{% url 'bookmarks:detailed' bookmark.id %}"
+            class="poster-card">
+            <img
+              src="https://image.tmdb.org/t/p/original{{ bookmark.posterpath }}"
+              alt="{{ bookmark.title }}" />
+          </a>
+        </div>
+        {% endfor %} -->
       </div>
-      {% endfor %}
-    </div>
-    <section>
+    </section>
+
+    <section id="history">
+      <div class="section-header">
+        <a href="{% url 'history:index' %}"
+          ><p class="section-title">HISTORY</p></a
+        >
+        <p class="section-count">( {{ history_count }} )</p>
+      </div>
+      <div class="section-posters">
+        <!-- {% for entry in entries %}
+        <div class="poster">
+          <a
+            href="{% url 'history:detailed' entry.id %}"
+            class="poster-card">
+            <img
+              src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}"
+              alt="{{ entry.title }}" />
+          </a>
+        </div>
+        {% endfor %} -->
+      </div>
+    </section>
+  </div>
 </div>
 
 <!-- <div class="wrap">
