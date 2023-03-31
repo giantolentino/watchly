@@ -124,7 +124,7 @@
 <div class="detailed-grid">
   <div class="poster-img">
     <img src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}" />
-    <p class="added-on">Added On: {{ entry.date_added }}</p>
+    <p class="added-on">Added On: {{ entry.date_added|date:"M d, Y"}}</p>
   </div>
 
   <div class="info">
