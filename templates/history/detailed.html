@@ -124,11 +124,12 @@
 <div class="detailed-grid">
   <div class="poster-img">
     <img src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}" />
+    <p class="added-on">Added On: {{ entry.date_added }}</p>
   </div>
 
   <div class="info">
     <h1 class="title">{{ entry.title }} ({{ entry.year }})</h1>
-    <h3 class="added-on">Added On: {{ entry.date_added }}</h3>
+
     <p class="overview">Overview: "{{ entry.description }}"</p>
     <p class="feedback">Feedback: {{ entry.feedback }}</p>
     <p class="rating">Rating: {{ entry.rating }}</p>
