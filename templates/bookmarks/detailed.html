@@ -135,7 +135,9 @@
       class="updateForm"
       id="updateForm">
       <form method="post">
-        {% csrf_token %} {{ form.as_p }}
+        <table>
+          {% csrf_token %} {{ form.as_table }}
+        </table>
         <div class="buttons">
           <button
             class="btn"
