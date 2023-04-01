@@ -40,11 +40,13 @@
   }
 
   .title {
-    font-size: 2rem;
+    font-size: max(2.5rem, 3vw);
   }
 
-  .priority,
-  .overview,
+  p {
+    font-size: max(1.25rem, 1.5vw);
+  }
+
   .added-on {
     font-size: 1rem;
   }
@@ -128,8 +130,8 @@
 
   <div class="info">
     <h1 class="title">{{ entry.title }} ({{ entry.year }})</h1>
-    <h3 class="added-on">Added On: {{ entry.date_added }}</h3>
-    <h3 class="priority">Priort: {{ entry.priority }}</h3>
+    <p class="added-on">Added On: {{ entry.date_added }}</p>
+    <p class="priority">Priort: {{ entry.priority }}</p>
     <p class="overview">Overview: "{{ entry.description }}"</p>
   </div>
 </div>
