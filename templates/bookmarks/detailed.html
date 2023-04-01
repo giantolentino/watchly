@@ -124,9 +124,9 @@
 {% block main %}
 
 <div class="detailed-grid">
-  <img
-    class="poster-img"
-    src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}" />
+  <div class="poster-img">
+    <img src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}" />
+  </div>
 
   <div class="info">
     <h1 class="title">{{ entry.title }} ({{ entry.year }})</h1>
