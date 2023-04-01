@@ -43,3 +43,17 @@ def delete_history(request, pk):
     history = get_object_or_404(Entry, pk=pk)
     history.delete()
     return redirect("history:index")
+
+
+def sort_by(queryset, filter_by):
+    ordering = {
+        "1": "title",
+        "2": "-title",
+        "3": "date_added",
+        "4": "-date_added",
+        "5": "date_watched",
+        "6": "-date_watched",
+        "7": "-rating",
+        "8": "rating",
+    }
+    return queryset.order_by(ordering.get(filter_by, "-date_added"))
