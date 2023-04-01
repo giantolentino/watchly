@@ -12,6 +12,10 @@ class HistoryView(ListView):
 
     def get_queryset(self):
         queryset = Entry.objects.filter(user=self.request.user).order_by("-date_added")
+
+        sort = self.request.GET.get("sort_by")
+        print(self.request.GET.get("sort_by"))
+        queryset = sort_by(queryset, sort)
         return queryset
 
 
