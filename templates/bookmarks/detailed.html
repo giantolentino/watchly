@@ -9,7 +9,7 @@
     width: fit-content;
     font-size: 0.75rem;
   }
-  .info,
+
   .detailed-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -17,18 +17,36 @@
     padding-bottom: 1rem;
   }
 
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .detailed-grid {
+      grid-template-columns: auto 2fr;
+    }
+  }
+
   .poster-img {
+    max-width: 24.75rem;
+  }
+
+  .poster-img img {
     width: 100%;
     aspect-ratio: 2/3;
     object-fit: cover;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: max(2.5rem, 3vw);
   }
 
-  .priority,
-  .overview,
+  p {
+    font-size: max(1.25rem, 1.5vw);
+  }
+
   .added-on {
     font-size: 1rem;
   }
@@ -64,24 +82,37 @@
     padding-bottom: 1rem;
   }
 
-  .buttons {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  .updateForm p {
-    padding-bottom: 1rem;
-  }
-
-  .updateForm input[type='text'] {
-    width: 1.75rem;
-    text-align: center;
-    height: 1.75rem;
-  }
-
-  .updateForm button {
+  table {
+    table-layout: fixed;
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+  }
+
+  th {
+    width: 25%;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  td {
+    width: 75%;
+  }
+
+  th,
+  td {
+    word-wrap: break-word;
+  }
+
+  textarea,
+  input[type='text'],
+  input[type='number'] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
   }
 </style>
 <!-- <link
@@ -93,14 +124,14 @@
 {% block main %}
 
 <div class="detailed-grid">
-  <img
-    class="poster-img"
-    src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}" />
+  <div class="poster-img">
+    <img src="https://image.tmdb.org/t/p/original{{ entry.posterpath }}" />
+    <p class="added-on">Added On: {{ entry.date_added }}</p>
+  </div>
 
   <div class="info">
     <h1 class="title">{{ entry.title }} ({{ entry.year }})</h1>
-    <h3 class="added-on">Added On: {{ entry.date_added }}</h3>
-    <h3 class="priority">Priort: {{ entry.priority }}</h3>
+    <p class="priority">Priort: {{ entry.priority }}</p>
     <p class="overview">Overview: "{{ entry.description }}"</p>
   </div>
 </div>
@@ -135,7 +166,9 @@
       class="updateForm"
       id="updateForm">
       <form method="post">
-        {% csrf_token %} {{ form.as_p }}
+        <table>
+          {% csrf_token %} {{ form.as_table }}
+        </table>
         <div class="buttons">
           <button
             class="btn"
