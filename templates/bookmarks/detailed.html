@@ -5,6 +5,13 @@
 {% block head %}
 
 <style>
+  .buttons {
+    width: 24.75rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
   .btn {
     width: fit-content;
     font-size: 0.75rem;
@@ -65,8 +72,7 @@
   .box {
     display: none;
     padding: 0.5rem;
-    width: 50%;
-    height: 6rem;
+    width: 24.75rem;
     border: 2px solid #fff;
     border-radius: 10px;
   }
@@ -169,7 +175,9 @@
         <table>
           {% csrf_token %} {{ form.as_table }}
         </table>
-        <div class="buttons">
+        <div
+          class="buttons"
+          style="width: 100%">
           <button
             class="btn"
             type="submit">
@@ -185,7 +193,9 @@
       class="confirmBox">
       <div class="confirmBox-content">
         <p>Are you sure?</p>
-        <div class="buttons">
+        <div
+          class="buttons"
+          style="width: 100%">
           <button
             class="btn"
             id="confirmBtn">
