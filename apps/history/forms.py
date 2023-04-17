@@ -14,6 +14,7 @@ class HistoryEntryForm(ModelForm):
             "tmdb_id",
             "media_type",
             "date_watched",
+            "description",
             "feedback",
         ]
         widgets = {
@@ -22,6 +23,7 @@ class HistoryEntryForm(ModelForm):
             "posterpath": forms.HiddenInput(),
             "tmdb_id": forms.HiddenInput(),
             "media_type": forms.HiddenInput(),
+            "description": forms.HiddenInput(),
             "rating": forms.NumberInput(attrs={"class": "form-control"}),
             "date_watched": forms.DateInput(attrs={"type": "date"}),
             "feedback": forms.Textarea(
