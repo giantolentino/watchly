@@ -73,7 +73,6 @@
     display: none;
     padding: 0.5rem;
     width: 24.75rem;
-    height: 6rem;
     border: 2px solid #fff;
     border-radius: 10px;
   }
@@ -176,7 +175,9 @@
         <table>
           {% csrf_token %} {{ form.as_table }}
         </table>
-        <div class="buttons">
+        <div
+          class="buttons"
+          style="width: 100%">
           <button
             class="btn"
             type="submit">
@@ -192,7 +193,9 @@
       class="confirmBox">
       <div class="confirmBox-content">
         <p>Are you sure?</p>
-        <div class="buttons">
+        <div
+          class="buttons"
+          style="width: 100%">
           <button
             class="btn"
             id="confirmBtn">
