@@ -64,7 +64,8 @@
     width: 100%;
   }
 
-  .updateForm {
+  .updateForm,
+  .confirmBox {
     display: none;
   }
 
@@ -150,24 +151,6 @@
   >
 </div>
 
-<!-- <div
-  id="confirmBox"
-  class="confirmBox">
-  <div class="confirmBox-content">
-    <p>Are you sure?</p>
-    <div
-      class="buttons"
-      style="width: 100%">
-      <button
-        class="btn"
-        id="confirmBtn">
-        Yes
-      </button>
-      <div id="cancelBtn2"><button class="btn">No</button></div>
-    </div>
-  </div>
-</div> -->
-
 <div
   class="updateForm"
   id="updateForm">
@@ -186,15 +169,48 @@
   </form>
 </div>
 
+<div
+  id="confirmBox"
+  class="confirmBox">
+  <div class="confirmBox-content">
+    <p>Are you sure?</p>
+    <div
+      class="buttons"
+      style="width: 100%">
+      <button
+        class="btn"
+        id="confirmBtn">
+        Yes
+      </button>
+      <div id="CancelDelete"><button class="btn">No</button></div>
+    </div>
+  </div>
+</div>
+
 <script>
   const buttons = document.getElementById('buttons');
   const editBtn = document.getElementById('editBtn');
+  const deleteBtn = document.getElementById('deleteBtn');
+  const CancelDelete = document.getElementById('CancelDelete');
+  const confirmBox = document.getElementById('confirmBox');
   const updateForm = document.getElementById('updateForm');
 
   editBtn.addEventListener('click', (e) => {
     e.preventDefault();
     buttons.style.display = 'none';
     updateForm.style.display = 'block';
+  });
+
+  deleteBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    buttons.style.display = 'none';
+    confirmBox.style.display = 'block';
+  });
+
+  CancelDelete.addEventListener('click', (e) => {
+    e.preventDefault();
+    buttons.style.display = 'block';
+    confirmBox.style.display = 'none';
   });
 </script>
 
