@@ -64,8 +64,7 @@
     width: 100%;
   }
 
-  #updatezForm,
-  #confirmBox {
+  .updateForm {
     display: none;
   }
 
@@ -151,45 +150,52 @@
   >
 </div>
 
-<div
-  class="box"
-  id="box">
-  <div
-    class="updateForm"
-    id="updateForm">
-    <form method="post">
-      <table>
-        {% csrf_token %} {{ form.as_table }}
-      </table>
-      <div class="buttons">
-        <button
-          class="btn"
-          type="submit">
-          Update
-        </button>
-        <div id="cancelBtn1"><button class="btn">Cancel</button></div>
-      </div>
-    </form>
-  </div>
-
-  <div
-    id="confirmBox"
-    class="confirmBox">
-    <div class="confirmBox-content">
-      <p>Are you sure?</p>
-      <div
-        class="buttons"
-        style="width: 100%">
-        <button
-          class="btn"
-          id="confirmBtn">
-          Yes
-        </button>
-        <div id="cancelBtn2"><button class="btn">No</button></div>
-      </div>
+<!-- <div
+  id="confirmBox"
+  class="confirmBox">
+  <div class="confirmBox-content">
+    <p>Are you sure?</p>
+    <div
+      class="buttons"
+      style="width: 100%">
+      <button
+        class="btn"
+        id="confirmBtn">
+        Yes
+      </button>
+      <div id="cancelBtn2"><button class="btn">No</button></div>
     </div>
   </div>
+</div> -->
+
+<div
+  class="updateForm"
+  id="updateForm">
+  <form method="post">
+    <table>
+      {% csrf_token %} {{ form.as_table }}
+    </table>
+    <div class="buttons">
+      <button
+        class="btn"
+        type="submit">
+        Update
+      </button>
+      <div id="cancelBtn1"><button class="btn">Cancel</button></div>
+    </div>
+  </form>
 </div>
 
-<script></script>
+<script>
+  const buttons = document.getElementById('buttons');
+  const editBtn = document.getElementById('editBtn');
+  const updateForm = document.getElementById('updateForm');
+
+  editBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    buttons.style.display = 'none';
+    updateForm.style.display = 'block';
+  });
+</script>
+
 {% endblock %}
