@@ -6,10 +6,11 @@
 
 <style>
   .buttons {
-    width: 24.75rem;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  }
+
+  .buttons .btn:not(:last-child) {
+    margin-right: 1rem;
   }
 
   .btn {
@@ -63,22 +64,8 @@
     width: 100%;
   }
 
-  .centered {
-    width: 100%;
-    display: grid;
-    place-items: center;
-  }
-
-  .box {
-    display: none;
-    padding: 0.5rem;
-    width: 24.75rem;
-    border: 2px solid #fff;
-    border-radius: 10px;
-  }
-
-  #updatezForm,
-  #confirmBox {
+  .updateForm,
+  .confirmBox {
     display: none;
   }
 
@@ -149,7 +136,7 @@
     href="{% url 'bookmarks:move' entry.id %}"
     class="btn"
     id="bookmarkBtn"
-    >Bookmark</a
+    >Watched</a
   >
   <a
     href="#"
@@ -164,88 +151,67 @@
   >
 </div>
 
-<div class="centered">
-  <div
-    class="box"
-    id="box">
-    <div
-      class="updateForm"
-      id="updateForm">
-      <form method="post">
-        <table>
-          {% csrf_token %} {{ form.as_table }}
-        </table>
-        <div
-          class="buttons"
-          style="width: 100%">
-          <button
-            class="btn"
-            type="submit">
-            Update
-          </button>
-          <div id="cancelBtn1"><button class="btn">Cancel</button></div>
-        </div>
-      </form>
+<div
+  class="updateForm"
+  id="updateForm">
+  <form method="post">
+    <table>
+      {% csrf_token %} {{ form.as_table }}
+    </table>
+    <div class="buttons">
+      <button
+        class="btn"
+        type="submit">
+        Update
+      </button>
+      <div id="cancelBtn1"><button class="btn">Cancel</button></div>
     </div>
+  </form>
+</div>
 
+<div
+  id="confirmBox"
+  class="confirmBox">
+  <div class="confirmBox-content">
+    <p>Are you sure?</p>
     <div
-      id="confirmBox"
-      class="confirmBox">
-      <div class="confirmBox-content">
-        <p>Are you sure?</p>
-        <div
-          class="buttons"
-          style="width: 100%">
-          <button
-            class="btn"
-            id="confirmBtn">
-            Yes
-          </button>
-          <div id="cancelBtn2"><button class="btn">No</button></div>
-        </div>
-      </div>
+      class="buttons"
+      style="width: 100%">
+      <button
+        class="btn"
+        id="confirmBtn">
+        Yes
+      </button>
+      <div id="CancelDelete"><button class="btn">No</button></div>
     </div>
   </div>
 </div>
 
 <script>
-  const box = document.getElementById('box');
   const buttons = document.getElementById('buttons');
   const editBtn = document.getElementById('editBtn');
   const deleteBtn = document.getElementById('deleteBtn');
+  const CancelDelete = document.getElementById('CancelDelete');
   const confirmBox = document.getElementById('confirmBox');
   const updateForm = document.getElementById('updateForm');
-  const confirmBtn = document.getElementById('confirmBtn');
-  const cancelBtn1 = document.getElementById('cancelBtn1');
-  const cancelBtn2 = document.getElementById('cancelBtn2');
 
   editBtn.addEventListener('click', (e) => {
     e.preventDefault();
     buttons.style.display = 'none';
-    box.style.display = 'block';
     updateForm.style.display = 'block';
-    confirmBox.style.display = 'none';
   });
 
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault();
     buttons.style.display = 'none';
-    box.style.display = 'block';
-    updateForm.style.display = 'none';
     confirmBox.style.display = 'block';
   });
 
-  confirmBtn.addEventListener('click', () => {
-    window.location.href = deleteBtn.href;
-  });
-
-  cancelBtn1.addEventListener('click', () => {
-    box.style.display = 'none';
+  CancelDelete.addEventListener('click', (e) => {
+    e.preventDefault();
     buttons.style.display = 'block';
-  });
-  cancelBtn2.addEventListener('click', () => {
-    box.style.display = 'none';
-    buttons.style.display = 'block';
+    confirmBox.style.display = 'none';
   });
 </script>
+
 {% endblock %}
