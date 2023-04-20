@@ -5,8 +5,7 @@
 
 .search-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  /* grid-auto-rows: 30rem; */
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-gap: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
