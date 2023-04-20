@@ -44,51 +44,51 @@
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
+</div>
 
-  <div class="buttons">
+<div class="buttons">
+  <button
+    class="btn"
+    onclick="toggleBookmarkForm()"
+    id="bookmark-btn">
+    Bookmark
+  </button>
+  <button
+    class="btn"
+    onclick="toggleHistoryForm()"
+    id="history-btn">
+    History
+  </button>
+</div>
+
+<div
+  id="bookmark-form"
+  style="display: none">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="bookmark-form">{{ bookmark_form.as_p }}</div>
     <button
+      type="submit"
       class="btn"
-      onclick="toggleBookmarkForm()"
-      id="bookmark-btn">
-      Bookmark
+      name="bookmark_submit">
+      Save
     </button>
+  </form>
+</div>
+
+<div
+  id="history-form"
+  style="display: none">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="history-form">{{ history_form.as_p }}</div>
     <button
+      type="submit"
       class="btn"
-      onclick="toggleHistoryForm()"
-      id="history-btn">
-      History
+      name="history_submit">
+      Save
     </button>
-  </div>
-
-  <div
-    id="bookmark-form"
-    style="display: none">
-    <form method="POST">
-      {% csrf_token %}
-      <div class="bookmark-form">{{ bookmark_form.as_p }}</div>
-      <button
-        type="submit"
-        class="btn"
-        name="bookmark_submit">
-        Save
-      </button>
-    </form>
-  </div>
-
-  <div
-    id="history-form"
-    style="display: none">
-    <form method="POST">
-      {% csrf_token %}
-      <div class="history-form">{{ history_form.as_p }}</div>
-      <button
-        type="submit"
-        class="btn"
-        name="history_submit">
-        Save
-      </button>
-    </form>
-  </div>
+  </form>
 </div>
 <script>
   function toggleBookmarkForm() {
