@@ -4,7 +4,7 @@
 <!-- prettier-ignore -->
 {% block head %}
 
-<style>
+<!-- <style>
   .btn {
     width: fit-content;
     font-size: 0.75rem;
@@ -120,10 +120,11 @@
     border-radius: 4px;
     resize: vertical;
   }
-</style>
-<!-- <link
+</style> -->
+
+<link
   rel="stylesheet"
-  href="{% static 'styles/detailed.css' %}" /> -->
+  href="{% static 'styles/detailed.css' %}" />
 {% endblock %}
 
 <!-- prettier-ignore -->
@@ -144,11 +145,22 @@
   </div>
 </div>
 
-<button
-  class="btn"
-  id="updateBtn">
-  Update
-</button>
+<div
+  class="buttons"
+  id="buttons">
+  <button
+    class="btn"
+    id="updateBtn">
+    Update
+  </button>
+
+  <a
+    class="btn"
+    id="deleteBtn"
+    href="{% url 'history:delete' entry.id %}"
+    >DELETE</a
+  >
+</div>
 
 <div
   class="updateForm"
@@ -168,13 +180,6 @@
     </div>
   </form>
 </div>
-
-<a
-  class="btn"
-  id="deleteBtn"
-  href="{% url 'history:delete' entry.id %}"
-  >DELETE</a
->
 
 <div
   id="confirmBox"
