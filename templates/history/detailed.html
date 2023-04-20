@@ -150,7 +150,7 @@
   id="buttons">
   <button
     class="btn"
-    id="updateBtn">
+    id="editBtn">
     Update
   </button>
 
@@ -198,32 +198,51 @@
 </div>
 
 <script>
-  const updateBtn = document.getElementById('updateBtn');
-  const updateForm = document.getElementById('updateForm');
+  const buttons = document.getElementById('buttons');
+  const editBtn = document.getElementById('editBtn');
   const deleteBtn = document.getElementById('deleteBtn');
-  const confirmBox = document.getElementById('confirmBox');
-  const confirmBtn = document.getElementById('confirmBtn');
+  // const CancelDelete = document.getElementById('CancelDelete');
+  // const confirmBox = document.getElementById('confirmBox');
+  const updateForm = document.getElementById('updateForm');
 
-  updateBtn.addEventListener('click', (e) => {
+  editBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    updateBtn.style.display = 'none';
+    buttons.style.display = 'none';
     updateForm.style.display = 'block';
-    deleteBtn.style.display = 'none';
   });
 
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    deleteBtn.style.display = 'none';
+    buttons.style.display = 'none';
     confirmBox.style.display = 'block';
   });
 
-  confirmBtn.addEventListener('click', () => {
-    window.location.href = deleteBtn.href;
-  });
+  // const updateBtn = document.getElementById('updateBtn');
+  // const updateForm = document.getElementById('updateForm');
+  // const deleteBtn = document.getElementById('deleteBtn');
+  // const confirmBox = document.getElementById('confirmBox');
+  // const confirmBtn = document.getElementById('confirmBtn');
 
-  cancelBtn.addEventListener('click', () => {
-    confirmBox.style.display = 'none';
-    deleteBtn.style.display = 'block';
-  });
+  // updateBtn.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   updateBtn.style.display = 'none';
+  //   updateForm.style.display = 'block';
+  //   deleteBtn.style.display = 'none';
+  // });
+
+  // deleteBtn.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   deleteBtn.style.display = 'none';
+  //   confirmBox.style.display = 'block';
+  // });
+
+  // confirmBtn.addEventListener('click', () => {
+  //   window.location.href = deleteBtn.href;
+  // });
+
+  // cancelBtn.addEventListener('click', () => {
+  //   confirmBox.style.display = 'none';
+  //   deleteBtn.style.display = 'block';
+  // });
 </script>
 {% endblock %}
