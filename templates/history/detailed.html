@@ -192,7 +192,7 @@
         id="confirmBtn">
         Yes
       </button>
-      <div id="cancelBtn"><button class="btn">No</button></div>
+      <div id="CancelDelete"><button class="btn">No</button></div>
     </div>
   </div>
 </div>
@@ -201,8 +201,8 @@
   const buttons = document.getElementById('buttons');
   const editBtn = document.getElementById('editBtn');
   const deleteBtn = document.getElementById('deleteBtn');
-  // const CancelDelete = document.getElementById('CancelDelete');
-  // const confirmBox = document.getElementById('confirmBox');
+  const CancelDelete = document.getElementById('CancelDelete');
+  const confirmBox = document.getElementById('confirmBox');
   const updateForm = document.getElementById('updateForm');
 
   editBtn.addEventListener('click', (e) => {
@@ -215,6 +215,12 @@
     e.preventDefault();
     buttons.style.display = 'none';
     confirmBox.style.display = 'block';
+  });
+
+  CancelDelete.addEventListener('click', (e) => {
+    e.preventDefault();
+    buttons.style.display = 'block';
+    confirmBox.style.display = 'none';
   });
 
   // const updateBtn = document.getElementById('updateBtn');
