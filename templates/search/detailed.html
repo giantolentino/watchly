@@ -8,10 +8,6 @@
   href="{% static 'styles/detailed.css' %}" />
 
 <style>
-  .btn {
-    width: fit-content;
-  }
-
   .bookmark-form {
     padding-bottom: 1rem;
   }
@@ -49,12 +45,21 @@
       allowfullscreen></iframe>
   </div>
 
-  <button
-    class="btn"
-    onclick="toggleBookmarkForm()"
-    id="bookmark-btn">
-    Bookmark
-  </button>
+  <div class="buttons">
+    <button
+      class="btn"
+      onclick="toggleBookmarkForm()"
+      id="bookmark-btn">
+      Bookmark
+    </button>
+    <button
+      class="btn"
+      onclick="toggleHistoryForm()"
+      id="history-btn">
+      History
+    </button>
+  </div>
+
   <div
     id="bookmark-form"
     style="display: none">
@@ -70,12 +75,6 @@
     </form>
   </div>
 
-  <button
-    class="btn"
-    onclick="toggleHistoryForm()"
-    id="history-btn">
-    History
-  </button>
   <div
     id="history-form"
     style="display: none">
