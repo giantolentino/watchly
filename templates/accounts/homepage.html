@@ -87,15 +87,17 @@
       </div>
     </section>
   </div>
-</div>
 
-<!-- <div class="wrap">
-  <a
-    class="btn"
-    href="{% url 'accounts:logout' %}"
-    >Logout</a
-  >
-</div> -->
+  <!-- <div class="wrap">
+    <a
+      class="btn"
+      href="{% url 'accounts:logout' %}"
+      >Logout</a
+    >
+  </div> -->
+</div>
+<!-- prettier-ignore -->
+{% endif %}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -108,7 +110,4 @@
     }
   });
 </script>
-
-<!-- prettier-ignore -->
-{% endif %} 
 {% endblock %}
