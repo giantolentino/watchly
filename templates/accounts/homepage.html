@@ -33,8 +33,13 @@
     >
   </div>
 
-  {% else %}
-  <h1 class="welcome-msg">WELCOME, {{ request.user.username }}</h1>
+  <!-- prettier-ignore -->
+  {% else %} 
+  {% if show_welcome_animation %}
+  <div class="welcome-animation">Welcome to Watchly</div>
+  {% endif %}
+
+  <!-- <h1 class="welcome-msg">WELCOME, {{ request.user.username }}</h1> -->
 
   <div class="sections">
     <section id="bookmarks">
@@ -82,16 +87,27 @@
       </div>
     </section>
   </div>
+
+  <!-- <div class="wrap">
+    <a
+      class="btn"
+      href="{% url 'accounts:logout' %}"
+      >Logout</a
+    >
+  </div> -->
 </div>
-
-<!-- <div class="wrap">
-  <a
-    class="btn"
-    href="{% url 'accounts:logout' %}"
-    >Logout</a
-  >
-</div> -->
-
 <!-- prettier-ignore -->
-{% endif %} 
+{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const welcomeAnimation = document.querySelector('.welcome-animation');
+
+    if (welcomeAnimation) {
+      welcomeAnimation.addEventListener('animationend', function () {
+        welcomeAnimation.remove();
+      });
+    }
+  });
+</script>
 {% endblock %}
