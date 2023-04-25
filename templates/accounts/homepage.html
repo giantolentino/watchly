@@ -94,6 +94,18 @@
   >
 </div> -->
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const welcomeAnimation = document.querySelector('.welcome-animation');
+
+    if (welcomeAnimation) {
+      welcomeAnimation.addEventListener('animationend', function () {
+        welcomeAnimation.remove();
+      });
+    }
+  });
+</script>
+
 <!-- prettier-ignore -->
 {% endif %} 
 {% endblock %}
