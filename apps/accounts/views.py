@@ -23,11 +23,19 @@ class HomePageView(TemplateView):
         context["history_count"] = Entry.objects.filter(
             user_id=self.request.user.id
         ).count()
+        context["show_welcome_animation"] = self.request.session.pop(
+            "show_welcome_animation", False
+        )
         return context
 
 
 class LoginView(LoginView):
     template_name = "accounts/login.html"
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.request.session["show_welcome_animation"] = True
+        return response
 
 
 class LogoutView(LogoutView):

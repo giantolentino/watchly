@@ -33,8 +33,11 @@
     >
   </div>
 
-  {% else %}
+  <!-- prettier-ignore -->
+  {% else %} 
+  {% if show_welcome_animation %}
   <div class="welcome-animation">Welcome to Watchly</div>
+  {% endif %}
 
   <!-- <h1 class="welcome-msg">WELCOME, {{ request.user.username }}</h1> -->
 
