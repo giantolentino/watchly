@@ -55,6 +55,7 @@ p {
 .trailer {
   aspect-ratio: 16 / 9;
   min-width: 24.75rem;
+  max-width: 42rem;
 }
 
 .updateForm,
