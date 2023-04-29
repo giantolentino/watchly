@@ -87,3 +87,7 @@
   color: black !important;
   font-size: 5rem;
 }
+
+#navbar-logout-link {
+  color: #a93232 !important;
+}
