@@ -48,9 +48,10 @@
         >History</a
       >
       <a
-        href="#"
+        href="{% url 'accounts:logout' %}"
         class="navbar-item"
-        >Profile</a
+        id="navbar-logout-link"
+        >Logout</a
       >
     </div>
     {% include 'includes/search.html' %}
@@ -78,9 +79,10 @@
       >History</a
     >
     <a
-      href="#"
+      href="{% url 'accounts:logout' %}"
       class="nav-item"
-      >Profile</a
+      id="fullscreen-menu-logout-link"
+      >Logout</a
     >
   </div>
 </nav>

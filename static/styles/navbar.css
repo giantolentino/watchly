@@ -87,3 +87,8 @@
   color: black !important;
   font-size: 5rem;
 }
+
+#fullscreen-menu-logout-link,
+#navbar-logout-link {
+  color: #a93232 !important;
+}
