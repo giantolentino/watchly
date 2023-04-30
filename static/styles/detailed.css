@@ -71,7 +71,7 @@ p {
 
 table {
   table-layout: fixed;
-  max-width: 24.75rem;
+  width: 24.75rem;
   border-collapse: separate;
   border-spacing: 0 1rem;
 }
