@@ -64,6 +64,7 @@ p {
   color: #555;
   padding: 1rem;
   font-style: italic;
+  margin-top: 10px;
 }
 
 .updateForm,
