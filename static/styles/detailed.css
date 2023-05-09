@@ -65,6 +65,7 @@ p {
   padding: 1rem;
   font-style: italic;
   margin-top: 10px;
+  border-radius: 5px;
 }
 
 .updateForm,
