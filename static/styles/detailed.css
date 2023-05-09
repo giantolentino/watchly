@@ -63,6 +63,7 @@ p {
   border-left: 5px solid #ff5e5e;
   color: #555;
   padding: 1rem;
+  font-style: italic;
 }
 
 .updateForm,
